@@ -10,7 +10,8 @@ import {
   ChefHat,
   BookOpen,
   Lightbulb,
-  Users
+  Users,
+  Brain
 } from 'lucide-react';
 
 const HobbiesSection = () => {
@@ -291,7 +292,32 @@ const HobbiesSection = () => {
           viewport={{ once: true }}
           className="text-center mt-xl"
         >
-          <div className="glass-card" style={{ maxWidth: '800px', margin: '0 auto', padding: '32px' }}>
+          <div className="glass-card" style={{ 
+            maxWidth: '800px', 
+            margin: '0 auto', 
+            padding: '32px',
+            position: 'relative'
+          }}>
+            {/* Big blurred white background shadow */}
+            <div style={{
+              position: 'absolute',
+              inset: '-25px',
+              background: 'rgba(255, 255, 255, 0.15)',
+              borderRadius: 'var(--radius-xl)',
+              filter: 'blur(50px)',
+              zIndex: -1
+            }} />
+            
+            {/* White lighted brain icon at top-left border */}
+            <div style={{
+              position: 'absolute',
+              top: '-20px',
+              left: '20px',
+              zIndex: 10,
+              filter: 'drop-shadow(0 0 15px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4))'
+            }}>
+              <Brain size={32} style={{ color: 'rgba(255, 255, 255, 0.9)' }} />
+            </div>
             <p style={{
               fontSize: '1.1rem',
               fontStyle: 'italic',
@@ -299,8 +325,7 @@ const HobbiesSection = () => {
               lineHeight: '1.6',
               margin: 0
             }}>
-              "Life is a beautiful composition of diverse experiences. Each hobby adds a unique note to the symphony, 
-              creating harmony between creativity, adventure, and human connection."
+I think, working in a team is not just about the work, it's about the people, finding those which you'll have good moments.
             </p>
           </div>
         </motion.div>
