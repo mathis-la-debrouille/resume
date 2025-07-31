@@ -202,16 +202,13 @@ const WhoIAmSection = () => {
               <h3 className="heading-card mb-md">Hello! I'm Mathis</h3>
               <div className="text-body" style={{ lineHeight: '1.8', marginBottom: '24px' }}>
                 <p style={{ marginBottom: '16px' }}>
-                  I'm a passionate Product Manager with strong technical fluency who bridges the gap between business vision and technical execution. 
-                  With experience across various industries, I specialize in building products that not only meet user needs but drive real business value.
+                  I'm a curious and driven Product Manager with a strong technical background. I started with hands-on development and quickly realized that what I love most is building meaningful products that live at the intersection of tech, people, and vision.
                 </p>
                 <p style={{ marginBottom: '16px' }}>
-                  My journey began with hands-on development experience, which gave me a unique perspective on product management. 
-                  I believe the best products are built when technical possibilities meet user empathy and business strategy.
+                  I've co-founded projects like Tupi, a gamified ecological app, and worked on fintech tools like Valyo. I've pitched in front of juries, fixed broken demos overnight, and pushed through jungle phases where everything still had to be built.
                 </p>
-                <p>
-                  When I'm not working on products, you'll find me exploring new technologies, climbing rocks, 
-                  or discovering new places around the world.
+                <p style={{ marginBottom: '16px' }}>
+                  What drives me is impact. I want to build tools that make sense, that people love to use, and that solve real problems. I'm currently looking for early-stage missions where I can bring both vision and execution.
                 </p>
               </div>
             </div>
@@ -294,8 +291,7 @@ const WhoIAmSection = () => {
               lineHeight: '1.6',
               marginBottom: '16px'
             }}>
-              "Great products are born at the intersection of user needs, business goals, and technical possibilities. 
-              I believe in building solutions that create real value for users while driving sustainable business growth."
+              "Fall in love with the problem, not the solution."<br/> Uri Levine (Waze co-founder)
             </blockquote>
             <div style={{
               width: '40px',

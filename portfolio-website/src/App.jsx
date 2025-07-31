@@ -8,6 +8,7 @@ import ExperiencesSection from './components/sections/ExperiencesSection';
 import SkillsSection from './components/sections/SkillsSection';
 import HobbiesSection from './components/sections/HobbiesSection';
 import SimpleSection from './components/sections/SimpleSection';
+import PersonalDashboardSection from './components/sections/PersonalDashboardSection';
 import './styles/design-system.css';
 
 function App() {
@@ -59,10 +60,7 @@ function App() {
           </section>
           
           <section id="personal">
-            <SimpleSection 
-              title="Personal Dashboard"
-              description="Recent books, movies, music, and travels"
-            />
+            <PersonalDashboardSection />
           </section>
         </main>
       </div>

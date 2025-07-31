@@ -1,5 +1,10 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Play } from 'lucide-react';
+import valyoPhoto from '../../assets/valyo-photo.jpg';
+import tupiPhoto from '../../assets/tupi-photo.jpg';
+import creativePhoto from '../../assets/lab-photo.jpg';
+import sifokabPhoto from '../../assets/sifokab-photo.jpg';
+import idlPhoto from '../../assets/idle.jpg';
 
 const ProjectsSection = () => {
   const projects = [
@@ -12,6 +17,7 @@ const ProjectsSection = () => {
       status: 'In Progress',
       period: 'June 2025 – Present',
       role: 'Co-founder',
+      image: valyoPhoto,
       stats: {
         stage: 'MVP',
         timeline: '4 months',
@@ -30,13 +36,14 @@ const ProjectsSection = () => {
       status: 'Completed',
       period: 'April 2024 – November 2024',
       role: 'Founder',
+      image: tupiPhoto,
       stats: {
         retention: '82%',
         rating: '4.2/5',
         pitch: '2nd Place'
       },
       links: {
-        live: 'https://website-black-two-13.vercel.app/'
+        live: 'https://tupi-app.com/'
       }
     },
     {
@@ -48,6 +55,7 @@ const ProjectsSection = () => {
       status: 'Completed',
       period: 'Epitech Project',
       role: 'Founder & Dev',
+      image: idlPhoto,
       stats: {
         surveys: 'ESN Market',
         validation: 'KPI Tested',
@@ -63,6 +71,7 @@ const ProjectsSection = () => {
       status: 'Completed',
       period: 'October 2022 – May 2023',
       role: 'Co-founder',
+      image: idlPhoto,
       stats: {
         students: '50+',
         projects: '20+',
@@ -111,17 +120,30 @@ const ProjectsSection = () => {
               className="glass-card"
               style={{ overflow: 'hidden' }}
             >
-              {/* Project Image Placeholder */}
-              <div className="card-project-image">
+              {/* Project Image */}
+              <div className="card-project-image" style={{ position: 'relative', overflow: 'hidden' }}>
+                {project.image && (
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0'
+                    }}
+                  />
+                )}
                 <div style={{ 
                   position: 'absolute', 
                   top: '16px', 
                   left: '16px',
                   fontSize: '12px',
                   padding: '4px 8px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
                   borderRadius: '12px',
-                  color: 'rgba(255, 255, 255, 0.8)'
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(8px)'
                 }}>
                   {project.category}
                 </div>
@@ -132,6 +154,7 @@ const ProjectsSection = () => {
                   fontSize: '12px',
                   padding: '4px 8px',
                   borderRadius: '12px',
+                  backdropFilter: 'blur(8px)',
                   ...getStatusStyle(project.status)
                 }}>
                   {project.role}

@@ -89,13 +89,59 @@ const SpatialGrid = () => {
 
   const getCardStyle = (size) => {
     const baseStyle = {
-      height: size === 'small' ? '160px' : '240px',
+      height: '160px', // Shorter uniform height for all cards
       position: 'relative',
       overflow: 'hidden',
       cursor: 'pointer'
     };
     
     return baseStyle;
+  };
+
+  const getSphereColor = (gradient) => {
+    // Extract color from gradient for sphere animation - Much more powerful colors
+    const colorMap = {
+      'rgba(59, 130, 246, 0.2)': 'rgba(59, 130, 246, 0.8)', // Blue - More intense
+      'rgba(147, 51, 234, 0.2)': 'rgba(147, 51, 234, 0.8)', // Purple - More intense
+      'rgba(16, 185, 129, 0.2)': 'rgba(16, 185, 129, 0.8)', // Green - More intense
+      'rgba(239, 68, 68, 0.2)': 'rgba(239, 68, 68, 0.8)', // Red - More intense
+      'rgba(245, 158, 11, 0.2)': 'rgba(245, 158, 11, 0.8)', // Yellow - More intense
+      'rgba(6, 182, 212, 0.2)': 'rgba(6, 182, 212, 0.8)', // Cyan - More intense
+      'rgba(99, 102, 241, 0.2)': 'rgba(99, 102, 241, 0.8)', // Indigo - More intense
+      'rgba(236, 72, 153, 0.2)': 'rgba(236, 72, 153, 0.8)', // Pink - More intense
+      'rgba(249, 115, 22, 0.2)': 'rgba(249, 115, 22, 0.8)' // Orange - More intense
+    };
+    
+    // Find matching color from gradient
+    for (const [key, value] of Object.entries(colorMap)) {
+      if (gradient.includes(key)) {
+        return value;
+      }
+    }
+    return 'rgba(255, 255, 255, 0.4)'; // Fallback
+  };
+
+  const getComplementaryColor = (gradient) => {
+    // Complementary colors for each primary color - Powerful like before
+    const complementaryMap = {
+      'rgba(59, 130, 246, 0.2)': 'rgba(249, 115, 22, 0.8)', // Blue → Orange - Powerful
+      'rgba(147, 51, 234, 0.2)': 'rgba(34, 197, 94, 0.8)', // Purple → Green - Powerful
+      'rgba(16, 185, 129, 0.2)': 'rgba(236, 72, 153, 0.8)', // Green → Pink - Powerful
+      'rgba(239, 68, 68, 0.2)': 'rgba(200, 180, 190, 0.6)', // Red (Hobbies) → Light Gray Pink - Softer
+      'rgba(245, 158, 11, 0.2)': 'rgba(59, 130, 246, 0.8)', // Yellow → Blue - Powerful
+      'rgba(6, 182, 212, 0.2)': 'rgba(239, 68, 68, 0.8)', // Cyan → Red - Powerful
+      'rgba(99, 102, 241, 0.2)': 'rgba(245, 158, 11, 0.8)', // Indigo → Yellow - Powerful
+      'rgba(236, 72, 153, 0.2)': 'rgba(16, 185, 129, 0.8)', // Pink → Green - Powerful
+      'rgba(249, 115, 22, 0.2)': 'rgba(99, 102, 241, 0.8)' // Orange → Indigo - Powerful
+    };
+    
+    // Find matching complementary color from gradient
+    for (const [key, value] of Object.entries(complementaryMap)) {
+      if (gradient.includes(key)) {
+        return value;
+      }
+    }
+    return 'rgba(255, 255, 255, 0.4)'; // Fallback
   };
 
   const handleCardClick = (itemId) => {
@@ -130,7 +176,7 @@ const SpatialGrid = () => {
           viewport={{ once: true }}
           className="text-center mb-xl"
         >
-          <h2 className="heading-section">Explore My Universe</h2>
+          <h2 className="heading-section" style={{ marginBottom: '0px' }}>Explore My Universe</h2>
           <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
             Navigate through different aspects of my professional and personal journey
           </p>
@@ -161,7 +207,81 @@ const SpatialGrid = () => {
                 className="glass-card"
                 style={getCardStyle(item.size)}
               >
-                {/* Gradient Overlay */}
+                {/* Primary Animated Blurred Sphere Gradient */}
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    width: '200px',
+                    height: '200px',
+                    background: `radial-gradient(circle, ${getSphereColor(item.gradient)} 0%, ${getSphereColor(item.gradient).replace('0.8', '0.4')} 40%, transparent 70%)`,
+                    borderRadius: '50%',
+                    filter: 'blur(40px)',
+                    zIndex: 1
+                  }}
+                  animate={{
+                    scale: [1, 1.3, 1.1, 1],
+                    opacity: [0.6, 1, 0.8, 0.6],
+                    rotate: [0, 180, 360],
+                    x: [
+                      -60, // Start position (left/right based on index)
+                      index % 2 === 0 ? 40 : -40, // Move to opposite side
+                      index % 3 === 0 ? 60 : -20, // Diagonal movement
+                      -60 // Return to start
+                    ],
+                    y: [
+                      -60, // Start position (top/bottom based on index)
+                      index % 2 === 0 ? 60 : -20, // Move vertically
+                      index % 3 === 0 ? -40 : 40, // Cross movement
+                      -60 // Return to start
+                    ]
+                  }}
+                  transition={{
+                    duration: 6 + (index * 0.8),
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: index * 0.4
+                  }}
+                />
+
+                {/* Complementary Animated Blurred Sphere Gradient - Independent behavior */}
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    width: '150px',
+                    height: '150px',
+                    background: `radial-gradient(circle, ${getComplementaryColor(item.gradient)} 0%, ${getComplementaryColor(item.gradient).replace('0.8', '0.4')} 40%, transparent 70%)`,
+                    borderRadius: '50%',
+                    filter: 'blur(35px)',
+                    zIndex: 1
+                  }}
+                  animate={{
+                    scale: [1, 1.2, 1.4, 1],
+                    opacity: [0.5, 0.9, 0.7, 0.5],
+                    rotate: [0, -90, -180, -270, -360], // Smooth counter-clockwise
+                    x: [
+                      80, // Start far right
+                      20, // Move toward center-right
+                      -40, // Cross to left
+                      10, // Back toward center
+                      80 // Return to start
+                    ],
+                    y: [
+                      -80, // Start top
+                      20, // Move down to center
+                      80, // Go to bottom
+                      -30, // Back up
+                      -80 // Return to start
+                    ]
+                  }}
+                  transition={{
+                    duration: 10 + (index * 0.7), // Much longer, slower cycle
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: (index * 0.6) + 3 // Different delay pattern
+                  }}
+                />
+
+                {/* Hover Gradient Overlay */}
                 <div 
                   style={{
                     position: 'absolute',
@@ -169,7 +289,8 @@ const SpatialGrid = () => {
                     background: item.gradient,
                     opacity: '0',
                     transition: 'opacity 0.3s ease',
-                    borderRadius: 'var(--radius-lg)'
+                    borderRadius: 'var(--radius-lg)',
+                    zIndex: 2
                   }}
                   className="hover-gradient"
                 />

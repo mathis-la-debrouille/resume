@@ -223,19 +223,19 @@ const ExperiencesSection = () => {
                       <div className="flex items-center gap-sm">
                         <Building size={14} style={{ color: 'var(--color-text-secondary)' }} />
                         <span className="text-small font-medium" style={{ color: 'var(--color-text-primary)' }}>
-                          {exp.company}
+                          &nbsp;{exp.company}&nbsp;
                         </span>
                       </div>
                       <div className="flex items-center gap-sm">
                         <MapPin size={14} style={{ color: 'var(--color-text-secondary)' }} />
                         <span className="text-small" style={{ color: 'var(--color-text-secondary)' }}>
-                          {exp.location}
+                          &nbsp;{exp.location}&nbsp;
                         </span>
                       </div>
                       <div className="flex items-center gap-sm">
                         <Calendar size={14} style={{ color: 'var(--color-text-secondary)' }} />
                         <span className="text-small" style={{ color: 'var(--color-text-secondary)' }}>
-                          {exp.period}
+                          &nbsp;{exp.period}&nbsp;
                         </span>
                       </div>
                     </div>

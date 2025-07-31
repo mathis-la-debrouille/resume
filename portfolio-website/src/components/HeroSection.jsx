@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import FlanRecipeCard from './FlanRecipeCard';
 
 const HeroSection = () => {
   const scrollToProjects = () => {
@@ -13,8 +14,57 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="section section-center" style={{ background: 'linear-gradient(135deg, transparent 0%, rgba(16, 185, 129, 0.05) 100%)' }}>
-      <div className="container">
+    <section className="section section-center" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Small Moving Spheres */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 1
+      }}>
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              width: '40px',
+              height: '40px',
+              background: `radial-gradient(circle, rgba(${i % 3 === 0 ? '59, 130, 246' : i % 3 === 1 ? '156, 163, 175' : '29, 78, 216'}, 1) 0%, rgba(${i % 3 === 0 ? '29, 78, 216' : i % 3 === 1 ? '107, 114, 128' : '59, 130, 246'}, 0.6) 70%, transparent 100%)`,
+              borderRadius: '50%',
+              filter: 'blur(12px)',
+              transform: 'translate(-50%, -50%)',
+              boxShadow: `0 0 30px rgba(${i % 3 === 0 ? '59, 130, 246' : i % 3 === 1 ? '156, 163, 175' : '29, 78, 216'}, 0.7)`
+            }}
+            animate={{
+              x: [
+                Math.cos(i * 45 * Math.PI / 180) * 80,
+                Math.cos((i * 45 + 90) * Math.PI / 180) * 120,
+                Math.cos((i * 45 + 180) * Math.PI / 180) * 60,
+                Math.cos((i * 45 + 270) * Math.PI / 180) * 100,
+                Math.cos(i * 45 * Math.PI / 180) * 80
+              ],
+              y: [
+                Math.sin(i * 45 * Math.PI / 180) * 60,
+                Math.sin((i * 45 + 90) * Math.PI / 180) * 80,
+                Math.sin((i * 45 + 180) * Math.PI / 180) * 40,
+                Math.sin((i * 45 + 270) * Math.PI / 180) * 70,
+                Math.sin(i * 45 * Math.PI / 180) * 60
+              ],
+              scale: [1, 1.2, 0.8, 1.1, 1],
+              opacity: [0.7, 1, 0.5, 0.8, 0.7],
+            }}
+            transition={{
+              duration: 10 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +89,7 @@ const HeroSection = () => {
             <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
               Product Manager & Tech fluent
             </p>
-            <p className="text-body">Building impactful experiences</p>
+            <p className="text-body">I love talking about startups, AI, and how to make the perfect "flan"</p>
           </motion.div>
 
           <motion.div
@@ -152,6 +202,9 @@ const HeroSection = () => {
           }} />
         </div>
       </motion.div>
+
+      {/* Flan Recipe Card */}
+      <FlanRecipeCard />
     </section>
   );
 };
