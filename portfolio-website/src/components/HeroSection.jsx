@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-import FlanRecipeCard from './FlanRecipeCard';
 
 const HeroSection = () => {
   const scrollToProjects = () => {
@@ -203,8 +202,8 @@ const HeroSection = () => {
         </div>
       </motion.div>
 
-      {/* Flan Recipe Card */}
-      <FlanRecipeCard />
+      {/* Flan Recipe Card - Disabled */}
+      {/* <FlanRecipeCard /> */}
     </section>
   );
 };

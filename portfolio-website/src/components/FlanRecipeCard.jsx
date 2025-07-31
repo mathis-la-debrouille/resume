@@ -3,20 +3,14 @@ import { useState, useEffect } from 'react';
 import { ChefHat, X } from 'lucide-react';
 
 const FlanRecipeCard = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const isAtTop = scrollTop === 0; // Must be exactly at top
-      console.log('Scroll position:', scrollTop, 'Is at top:', isAtTop);
-      setIsVisible(isAtTop);
-      if (!isAtTop) {
-        setIsExpanded(false);
-        setIsOpen(false);
-      }
+      // Always keep it hidden
+      setIsVisible(false);
+      setIsExpanded(false);
     };
 
     // Check initial position
