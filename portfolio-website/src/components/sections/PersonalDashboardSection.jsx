@@ -189,15 +189,17 @@ In Sunny Beach, getting lost is the point. So grab your towel, practise your Rus
     { id: 'travels', label: 'Travels & Places', icon: MapPin }
   ];
 
-  const filteredPosts = blogPosts.filter(post => {
-    const matchesFilter = activeFilter === 'all' || post.theme === activeFilter;
-    const matchesSearch = searchQuery === '' || 
-      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
-    
-    return matchesFilter && matchesSearch;
-  });
+  const filteredPosts = blogPosts
+    .filter(post => {
+      const matchesFilter = activeFilter === 'all' || post.theme === activeFilter;
+      const matchesSearch = searchQuery === '' || 
+        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+      
+      return matchesFilter && matchesSearch;
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const getThemeColor = (theme) => {
     switch (theme) {
