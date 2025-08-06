@@ -132,7 +132,53 @@ Music doesn't have to be loud to move you. Sometimes a quiet song is enough.`,
       tags: ["music", "emotion", "zelie"],
       image: null,
       icon: Music
-    }
+    },
+    {
+  id: 6,
+  title: 'Sunny Beach Paradox: Sun, Scams, and Slavic Chatter',
+  excerpt: 'On Bulgaria’s Sunny Beach, the sun blazes as brightly as the hustle—where every deal feels like a loop of scams and surprises, and the sea breeze carries snippets of Russian and Bulgarian alike.',
+  content: `
+# Sunny Beach Paradox: Sun, Scams, and Slavic Chatter
+
+Waves gently hit the shore of Sunny Beach, but behind each smile is a practiced sales pitch. The hustle is not mean-spirited; it's a tradition passed down. You get scammed because they were scammed before. It's a cycle that becomes part of the local vibe.
+
+> *Taxi -> 15euro for a 1,5km ride, I tried to negotiate but it was a lost cause, corrupted police appeared*
+
+## The Scam Loop
+
+1. **First Link**: A friendly vendor offers you a “special deal” and you bite.
+2. **Second Link**: That vendor learned the trick from someone who learned it from another.
+3. **Repeat**: By the end of your holiday, you’re both impressed and amused by the system.
+
+It’s cheeky, it gives Sunny Beach a particular vibe, I did it, but would I do it again? No.
+
+## Lost in Translation (and Language)
+
+Russian flows as freely as Bulgarian. As you practise your Cyrillic phrases, you realize:
+
+- **Bulgarian & Russian kinship**: Shared roots in Slavic tongues make picking up words almost intuitive.
+- **Scammer could suddenly speak an Alien language**: When comes the moment you show you see you're being scammed, they speak Alien.
+
+## Media Monotony
+
+You’ll find just **one local TV channel** news, weather, and the occasional cultural program. Everything else is American reruns or Coca-Cola–branded entertainment.
+
+## Why It’s Cool to Feel Lost
+
+- **Adrenaline of ambiguity**: Not knowing exactly what you’re buying or why Spain’s soap ads are on Bulgarian TV—adds a playful uncertainty.
+- **Hopeless**: To enjoy your time, you have to be hopeless. Completly cynic but happy at least.
+
+In Sunny Beach, getting lost is the point. So grab your towel, practise your Russian, and let the scam loop serenade you under the Bulgarian sun.
+  `,
+  category: 'travel',
+  theme: 'travels',
+  date: '2025-08-06',
+  readTime: '4 min',
+  rating: 3,
+  tags: ['Bulgaria', 'Sunny Beach', 'travel', 'scams', 'language-learning'],
+  image: null,
+  icon: MapPin
+}
   ];
 
   const themes = [
