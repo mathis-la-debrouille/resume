@@ -5,79 +5,71 @@ import tupiPhoto from '../../assets/tupi-photo.jpg';
 import creativePhoto from '../../assets/lab-photo.jpg';
 import sifokabPhoto from '../../assets/sifokab-photo.jpg';
 import idlPhoto from '../../assets/idle.jpg';
+import pawcarePhoto from '../../assets/pawcare.png';
 
 const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
-      title: 'Valyo - Fintech Wealth Visualization Platform',
-      description: 'Design of a fintech platform for wealth visualization. User discovery, value proposition definition and associated business model. UI/UX design and roadmap definition for the next 4 months. Integration of data enrichment AI.',
-      technologies: ['Product Design', 'UI/UX', 'AI Integration', 'Fintech', 'Business Model'],
-      category: 'Fintech',
-      status: 'In Progress',
-      period: 'June 2025 – Present',
-      role: 'Co-founder',
-      image: valyoPhoto,
-      stats: {
-        stage: 'MVP',
-        timeline: '4 months',
-        role: 'Product Lead'
-      },
-      links: {
-        live: 'https://preview--valyo-glass-launch.lovable.app/'
-      }
+      title: 'Tupi',
+      subtitle: 'Turn eco intent into 4-week habit',
+      problem: 'Users want to be more ecological but lack motivation and habits',
+      metrics: ['D7 64%', 'NPS 52', '+38% NSM after Prompt Engine v1'],
+      role: 'Founder',
+      image: tupiPhoto,
+      buttons: [
+        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Tupi-252a3065f55b80e29c8aecf662a024a5?pvs=74' },
+        { label: 'Demo', link: 'https://tupi-app.com/' },
+        { label: 'PRD', link: 'https://light-atlasaurus-699.notion.site/PRD-Tupi-252a3065f55b809fa9b4d4b52734b20d?pvs=74' }
+      ]
     },
     {
       id: 2,
-      title: 'Tupi - Ecological Gamification Platform',
-      description: 'Project management & ideation: pivot towards ecological gamification (Duolingo style). 82% retention in Beta, average rating of 4.2/5 according to user feedback. About 150 exchanges and 80 photos at the interactive stand at Epitech Experiences. Final pitch: 🥈 2nd place at the jury.',
-      technologies: ['Gamification', 'Product Management', 'User Research', 'Mobile App'],
-      category: 'EdTech',
-      status: 'Completed',
-      period: 'April 2024 – November 2024',
-      role: 'Founder',
-      image: tupiPhoto,
-      stats: {
-        retention: '82%',
-        rating: '4.2/5',
-        pitch: '2nd Place'
-      },
-      links: {
-        live: 'https://tupi-app.com/'
-      }
+      title: 'Valyo',
+      subtitle: 'Fintech rules engine for wealth visualization',
+      problem: 'Wealth managers need better data visualization tools',
+      metrics: ['MVP Stage', '4mo Timeline', 'AI Integration'],
+      role: 'Co-founder/PM',
+      image: valyoPhoto,
+      buttons: [
+        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Valyo-252a3065f55b80288d4fd1943e97bff1?pvs=74' },
+        { label: 'Demo', link: 'https://preview--valyo-glass-launch.lovable.app/' }
+      ]
+    },
+    {
+      id: 5,
+      title: 'Pawcare',
+      subtitle: '(practice project) Pet-health companion',
+      problem: 'Pet owners need a way to track their pet\'s health and well-being',
+      metrics: ['Quant survey n≈100', 'MoSCoW', 'user flows, wireframes'],
+      role: 'Solo',
+      image: pawcarePhoto,
+      buttons: [
+        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Pawcare-252a3065f55b80f094a5ecc816c5a529?pvs=74' },
+      ]
     },
     {
       id: 3,
-      title: 'Sifokab - Data-Driven CRM',
-      description: 'Project Manager & Fullstack Dev: definition of user stories, roadmap and prototype for data collection/visualization. Quantitative and qualitative survey among ESN companies. Validation of KPIs with potential users.',
-      technologies: ['React', 'Node.js', 'Data Visualization', 'CRM', 'User Research'],
-      category: 'B2B SaaS',
-      status: 'Completed',
-      period: 'Epitech Project',
+      title: 'Sifokab',
+      subtitle: 'Data-driven CRM for ESN companies',
+      problem: 'ESN companies need better tools for data collection and visualization',
+      metrics: ['ESN Market', 'KPI Tested', 'B2B CRM'],
       role: 'Founder & Dev',
-      image: idlPhoto,
-      stats: {
-        surveys: 'ESN Market',
-        validation: 'KPI Tested',
-        scope: 'B2B CRM'
-      }
+      image: sifokabPhoto,
+      buttons: [
+      ]
     },
     {
       id: 4,
-      title: 'CreativeLab - Hardware Innovation Lab',
-      description: 'Launch of a hardware innovation laboratory within the school. Founded an association to provide students with access to cutting-edge hardware tools and mentorship for innovative projects.',
-      technologies: ['Hardware', 'Innovation Lab', 'Project Management', 'Community Building'],
-      category: 'Education',
-      status: 'Completed',
-      period: 'October 2022 – May 2023',
+      title: 'CreativeLab',
+      subtitle: 'Hardware innovation lab within school',
+      problem: 'Students lack access to cutting-edge hardware tools for innovation',
+      metrics: ['50+ Students', '20+ Projects', '8 Months'],
       role: 'Co-founder',
-      image: idlPhoto,
-      stats: {
-        students: '50+',
-        projects: '20+',
-        duration: '8 months'
-      }
-    }
+      image: creativePhoto,
+      buttons: [
+      ]
+    },
   ];
 
   const getStatusStyle = (status) => {
@@ -103,9 +95,9 @@ const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-xl"
         >
-          <h2 className="heading-section">Featured Projects</h2>
+          <h2 className="heading-section">Projects</h2>
           <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            Showcasing innovative solutions and creative implementations across various technologies
+            Product challenges, solutions, and measurable impact across different domains
           </p>
         </motion.div>
 
@@ -137,31 +129,19 @@ const ProjectsSection = () => {
                 <div style={{ 
                   position: 'absolute', 
                   top: '16px', 
-                  left: '16px',
-                  fontSize: '12px',
-                  padding: '4px 8px',
-                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                  borderRadius: '12px',
-                  color: 'rgba(255, 255, 255, 0.9)',
-                  backdropFilter: 'blur(8px)'
-                }}>
-                  {project.category}
-                </div>
-                <div style={{ 
-                  position: 'absolute', 
-                  top: '16px', 
                   right: '16px',
                   fontSize: '12px',
                   padding: '4px 8px',
                   borderRadius: '12px',
-                  backdropFilter: 'blur(8px)',
-                  ...getStatusStyle(project.status)
+                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  color: 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(8px)'
                 }}>
                   {project.role}
                 </div>
                 
-                {/* Hover Action Buttons */}
-                {project.links && (
+                {/* Hover Action Button */}
+                {project.buttons.find(btn => btn.label === 'Demo') && (
                   <div style={{
                     position: 'absolute',
                     inset: '0',
@@ -174,7 +154,7 @@ const ProjectsSection = () => {
                     backgroundColor: 'rgba(0, 0, 0, 0.5)'
                   }} className="project-actions">
                     <motion.a
-                      href={project.links.live}
+                      href={project.buttons.find(btn => btn.label === 'Demo').link}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="glass-card"
@@ -198,47 +178,51 @@ const ProjectsSection = () => {
                 )}
               </div>
 
-              <div style={{ padding: '0' }}>
-                <div style={{ marginBottom: '12px' }}>
-                  <h3 className="heading-card" style={{ margin: 0, fontSize: '1.1rem' }}>
+              <div style={{ padding: '24px' }}>
+                <div style={{ marginBottom: '16px' }}>
+                  <h3 className="heading-card" style={{ margin: 0, fontSize: '1.3rem' }}>
                     {project.title}
                   </h3>
-                  {project.period && (
-                    <p className="text-small" style={{ color: 'var(--color-text-secondary)', marginTop: '4px' }}>
-                      {project.period}
-                    </p>
-                  )}
+                  <p className="text-body" style={{ color: 'var(--color-text-secondary)', marginTop: '4px', fontSize: '14px' }}>
+                    {project.subtitle}
+                  </p>
                 </div>
-                <p className="text-body" style={{ marginBottom: '16px', fontSize: '14px' }}>
-                  {project.description}
+                
+                <p className="text-body" style={{ marginBottom: '16px', fontSize: '14px', fontWeight: '500' }}>
+                  {project.problem}
                 </p>
 
-                <div className="flex flex-wrap mb-md" style={{ gap: '8px', marginBottom: '16px' }}>
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="tag" style={{ fontSize: '10px' }}>
-                      {tech}
+                <div className="flex flex-wrap mb-md" style={{ gap: '8px', marginBottom: '20px' }}>
+                  {project.metrics.map((metric) => (
+                    <span key={metric} className="tag" style={{ 
+                      fontSize: '11px',
+                      backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                      color: '#10B981',
+                      border: '1px solid rgba(16, 185, 129, 0.2)'
+                    }}>
+                      {metric}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex justify-between text-small">
-                  {Object.entries(project.stats).map(([key, value]) => (
-                    <div key={key} className="text-center">
-                      <div style={{ 
-                        fontWeight: '600', 
-                        color: 'var(--color-text-primary)',
-                        marginBottom: '2px'
-                      }}>
-                        {value}
-                      </div>
-                      <div style={{ 
-                        textTransform: 'capitalize',
-                        color: 'var(--color-text-secondary)',
-                        fontSize: '11px'
-                      }}>
-                        {key}
-                      </div>
-                    </div>
+                <div className="flex flex-wrap" style={{ gap: '8px' }}>
+                  {project.buttons.map((button) => (
+                    <motion.a
+                      key={button.label}
+                      href={button.link}
+                      target={button.link.startsWith('http') ? '_blank' : '_self'}
+                      rel={button.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="btn btn-tertiary"
+                      style={{ 
+                        fontSize: '12px',
+                        padding: '6px 12px',
+                        textDecoration: 'none'
+                      }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      {button.label}
+                    </motion.a>
                   ))}
                 </div>
               </div>

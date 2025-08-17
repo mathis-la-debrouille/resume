@@ -85,10 +85,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mb-xl"
           >
-            <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-              Product Manager & Tech fluent
+            <p className="text-subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>
+              APM-track product builder focused on activation & habit loops.<br/>Shipped Tupi<br/>Built Valyo.<br/> Sped CI/CD at Brigad 
             </p>
-            <p className="text-body">I love talking about startups, AI, and how to make the perfect "flan"</p>
           </motion.div>
 
           <motion.div
@@ -112,29 +111,20 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <button className="btn btn-primary" onClick={scrollToProjects}>
-              View My Work
-              <ArrowRight size={16} />
-            </button>
+            <div className="flex justify-center items-center" style={{ gap: '16px', flexWrap: 'wrap' }}>
+              <button className="btn btn-primary" onClick={scrollToProjects}>
+                View 3 Projects
+                <ArrowRight size={16} />
+              </button>
+              <a href="#need_data" className="btn btn-secondary">
+                Download Resume
+              </a>
+              <a href="mailto:mathis.laurent.3m@gmail.com" className="btn btn-tertiary">
+                Contact
+              </a>
+            </div>
             
             <div className="flex" style={{ gap: '16px' }}>
-              <motion.a
-                href="https://github.com/mathis-la-debrouille"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card"
-                style={{ 
-                  padding: '12px', 
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Github size={20} />
-              </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/mathis-laurent-8613461b8/"
                 target="_blank"
@@ -153,7 +143,9 @@ const HeroSection = () => {
                 <Linkedin size={20} />
               </motion.a>
               <motion.a
-                href="mailto:mathis.laurent.3m@gmail.com"
+                href="https://github.com/mathis-la-debrouille"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="glass-card"
                 style={{ 
                   padding: '12px', 
@@ -165,7 +157,7 @@ const HeroSection = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Mail size={20} />
+                <Github size={20} />
               </motion.a>
             </div>
           </motion.div>

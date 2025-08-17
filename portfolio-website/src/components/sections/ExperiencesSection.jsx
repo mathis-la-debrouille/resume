@@ -5,93 +5,104 @@ const ExperiencesSection = () => {
   const experiences = [
     {
       id: 1,
-      title: 'Intern then DevOps Engineer (Fixed-term)',
+      title: 'DevOps Engineer',
       company: 'Brigad',
       location: 'Paris',
-      period: 'Sept 2024 – Present',
+      period: 'Sep 2024 – Present',
       description: [
-        'Automation of dynamic CI/CD pipelines, reducing build times by 30%',
-        'Advanced containerization (Docker + cache) and Kubernetes deployment to ensure 99.9% SLA',
-        'Infrastructure as Code (Terraform/Terragrunt) on AWS',
-        'Rapid incident management and production hotfixes with standardized procedures'
+        'Marketplace staffing platform.',
+        'Cut CI/CD from 14 to 9 min (–36%) via caching/parallelism; +28% releases/week.',
+        'Achieved 99.9% SLA; set product guardrails (p95 latency, error rate) and release health.'
       ],
-      skills: ['DevOps', 'CI/CD', 'Docker', 'Kubernetes', 'AWS', 'Terraform', 'Terragrunt'],
+      skills: ['DevOps', 'CI/CD', 'Docker', 'Kubernetes', 'AWS', 'SLA', 'Performance'],
       type: 'tech',
       image: '/api/placeholder/300/200'
     },
     {
       id: 2,
-      title: 'Sales Associate',
-      company: 'Décathlon',
-      location: 'Quebec',
-      period: 'October 2023 – May 2024',
+      title: 'Co-founder',
+      company: 'Valyo',
+      location: 'Paris',
+      period: 'Jun 2025 – Present',
       description: [
-        'A part-time job that allowed me to finance my international exchange',
-        'Sales associate in the Outdoor department with a preference for customer service and climbing section'
+        'Trust-first wealth hub (AISP + rules engine; DCA planner).',
+        '23 discovery interviews; wrote portfolio-aggregation PRD & 90-day roadmap.',
+        'Designed IA/UX; POC rules engine; LLM tagging & entity-matching for data enrichment.'
       ],
-      skills: ['Customer Service', 'Sales', 'Communication', 'Outdoor'],
-      type: 'service',
+      skills: ['Product Strategy', 'User Research', 'Fintech', 'AI/LLM', 'UX Design', 'PRD'],
+      type: 'product',
       image: '/api/placeholder/300/200'
     },
     {
       id: 3,
-      title: 'Fullstack Engineer (Intern)',
-      company: 'Monaliza',
+      title: 'Founder',
+      company: 'Tupi',
       location: 'Paris',
-      period: 'April 2023 – August 2023',
+      period: 'Apr 2024 – Present',
       description: [
-        'I joined a small empowering team with great ambition',
-        'Writing OpenAPI/Swagger specifications for GAN Insurance integration (REST endpoints, OAuth2/JWT)',
-        'Facilitated functional workshops with marketing and technical teams, tracked sprint roadmap and KPIs',
-        'Full-stack development of contract tracking tools and data analysis (React, Next.js, HubSpot, NestJS)'
+        'Duolingo-style eco actions app (closed beta).',
+        'Defined NSM/guardrails and experiment plan; led ideation → pivot to ecological gamification.',
+        'Shipped v1 to 120 beta users → D7 64%, D30 22%, NPS 52; 4.2/5 from 84 reviews.',
+        'Ran ~150 interviews; captured 80+ proofs at Epitech Experiences; 2nd place (jury).'
       ],
-      skills: ['React', 'Next.js', 'NestJS', 'OpenAPI', 'OAuth2', 'JWT', 'HubSpot'],
-      type: 'tech',
+      skills: ['Product Management', 'Gamification', 'User Research', 'A/B Testing', 'Retention'],
+      type: 'product',
       image: '/api/placeholder/300/200'
     },
     {
       id: 4,
-      title: 'Teaching Assistant & Team Leader',
-      company: 'Epitech / Ionis‑STM',
+      title: 'Full-Stack Engineer (Internship)',
+      company: 'Monaliza',
       location: 'Paris',
-      period: 'February 2022 – April 2023',
+      period: 'Apr. 2023 – Aug 2023',
       description: [
-        'Mentored 30+ students in advanced programming, software architecture and project management',
-        'Psychological support, crisis management and creating a supportive environment to foster success',
-        'Coordinated the TA team and optimized mentoring methodologies'
+        'Insurtech platform.',
+        'Authored OpenAPI/Swagger for partner integration (REST, OAuth2/JWT).',
+        'Shipped Contract Subscription → quote-to-contract +30%; led weekly stakeholder demos.'
       ],
-      skills: ['Leadership', 'Teaching', 'Team Management', 'Programming', 'Architecture'],
-      type: 'education',
+      skills: ['React', 'Next.js', 'NestJS', 'OpenAPI', 'OAuth2', 'JWT', 'Stakeholder Management'],
+      type: 'tech',
       image: '/api/placeholder/300/200'
     },
     {
       id: 5,
-      title: 'Independent Instructor (Freelance)',
-      company: 'Business School',
+      title: 'Pedagogical Assistant & Head of',
+      company: 'Epitech',
       location: 'Paris',
-      period: 'September 2022 – December 2022',
+      period: 'Feb. 2022 – Apr. 2023',
       description: [
-        'Designed and delivered modules on blockchain and Business Model Canvas',
-        'Created practical exercises and course materials, monitored pedagogical relevance',
-        'Mastered presentation techniques and public speaking'
+        'Supervised 30+ students (advanced programming/architecture); crisis handling & mentoring.',
+        'Coordinated assistant team and improved teaching methods (new 3-day cadence).'
       ],
-      skills: ['Blockchain', 'Business Model Canvas', 'Training', 'Public Speaking'],
+      skills: ['Leadership', 'Teaching', 'Team Management', 'Programming', 'Architecture', 'Mentoring'],
       type: 'education',
       image: '/api/placeholder/300/200'
     },
     {
       id: 6,
-      title: 'Web Development Intern',
-      company: 'Wiboo',
-      location: 'Nogent‑sur‑Marne',
-      period: 'July 2021 – January 2022',
+      title: 'Independent Teacher',
+      company: 'Business School (ISG)',
+      location: 'Paris',
+      period: 'Sep 2022 – Dec 2022',
       description: [
-        'Front-end (VueJS) and back-end (PHP/Laravel) development',
-        'Process automation',
-        'Collaborated with designers to develop wireframes and user flows'
+        'Designed & taught courses on blockchain and Business Model Canvas; public-speaking coaching.'
       ],
-      skills: ['Vue.js', 'PHP', 'Laravel', 'Frontend', 'Backend', 'UX Design'],
-      type: 'tech',
+      skills: ['Blockchain', 'Business Model Canvas', 'Training', 'Public Speaking', 'Course Design'],
+      type: 'education',
+      image: '/api/placeholder/300/200'
+    },
+    {
+      id: 7,
+      title: 'Co-founder',
+      company: 'CreativeLab (Association)',
+      location: 'Paris',
+      period: 'Oct 2022 – May 2023',
+      description: [
+        'Launched hardware innovation lab; recruited mentors; 10+ workshops in first semester.',
+        'Mentored 5 projects and lab produced ~15 prototypes'
+      ],
+      skills: ['Community Building', 'Hardware', 'Innovation Lab', 'Mentoring', 'Project Management'],
+      type: 'education',
       image: '/api/placeholder/300/200'
     }
   ];
@@ -100,6 +111,8 @@ const ExperiencesSection = () => {
     switch (type) {
       case 'tech':
         return 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(29, 78, 216, 0.2) 100%)';
+      case 'product':
+        return 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%)';
       case 'education':
         return 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.2) 100%)';
       case 'service':
@@ -112,6 +125,7 @@ const ExperiencesSection = () => {
   const getTypeLabel = (type) => {
     switch (type) {
       case 'tech': return 'Tech';
+      case 'product': return 'Product';
       case 'education': return 'Education';
       case 'service': return 'Service';
       default: return 'Other';

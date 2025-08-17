@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
+import SocialProofSection from './components/SocialProofSection';
 import SpatialGrid from './components/SpatialGrid';
 import ProjectsSection from './components/sections/ProjectsSection';
 import WhoIAmSection from './components/sections/WhoIAmSection';
@@ -9,9 +12,29 @@ import SkillsSection from './components/sections/SkillsSection';
 import HobbiesSection from './components/sections/HobbiesSection';
 import SimpleSection from './components/sections/SimpleSection';
 import PersonalDashboardSection from './components/sections/PersonalDashboardSection';
+import RPMSection from './components/sections/RPMSection';
+import Footer from './components/Footer';
 import './styles/design-system.css';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Handle direct navigation to application-pack
+    if (location.pathname === '/application-pack') {
+      // Small delay to ensure the component is mounted
+      setTimeout(() => {
+        const element = document.getElementById('application-pack');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div style={{ minHeight: '100vh', position: 'relative' }}>
       {/* Background Particles */}
@@ -36,6 +59,7 @@ function App() {
         <main>
           <section id="home">
             <HeroSection />
+            <SocialProofSection />
             <SpatialGrid />
           </section>
           
@@ -62,7 +86,13 @@ function App() {
           <section id="personal">
             <PersonalDashboardSection />
           </section>
+          
+          <div id="application-pack">
+            <RPMSection />
+          </div>
         </main>
+        
+        <Footer />
       </div>
     </div>
   );

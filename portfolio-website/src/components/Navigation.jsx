@@ -12,9 +12,7 @@ const Navigation = () => {
     { id: 'about', label: 'About' },
     { id: 'experiences', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'hobbies', label: 'Hobbies' },
-    { id: 'personal', label: 'Personal' }
+    { id: 'application-pack', label: 'Application Pack' }
   ];
 
   const scrollToSection = (sectionId) => {

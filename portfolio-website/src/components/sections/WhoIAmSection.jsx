@@ -8,23 +8,18 @@ const WhoIAmSection = () => {
   const personalInfo = [
     {
       icon: MapPin,
-      label: 'Location',
-      value: 'Paris, France'
+      label: 'Based in',
+      value: 'Paris, France (open to relocation)'
     },
     {
       icon: Calendar,
       label: 'Experience',
-      value: '3+ Years'
-    },
-    {
-      icon: Coffee,
-      label: 'Coffee Consumed',
-      value: '∞ Cups'
+      value: '3+ years (teaching, intern→DevOps, founder)'
     },
     {
       icon: Code,
-      label: 'Languages',
-      value: '12+ Programming'
+      label: 'Tech',
+      value: '12+ languages & frameworks'
     },
     {
       icon: Heart,
@@ -185,7 +180,7 @@ const WhoIAmSection = () => {
               lineHeight: '1.4',
               color: 'white'
             }}>
-              I participated in an event of debate and made a small video of it
+              I spoke at a debate event and edited a short recap video
             </p>
           </motion.div>
 
