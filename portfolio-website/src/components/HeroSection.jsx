@@ -86,7 +86,7 @@ const HeroSection = () => {
             className="mb-xl"
           >
             <p className="text-subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              APM-track product builder focused on activation & habit loops.<br/>Shipped Tupi<br/>Built Valyo.<br/> Sped CI/CD at Brigad 
+              PM-track product builder focused on activation & habit loops.<br/>Shipped Tupi<br/>Built Valyo.<br/> Sped CI/CD at Brigad 
             </p>
           </motion.div>
 
