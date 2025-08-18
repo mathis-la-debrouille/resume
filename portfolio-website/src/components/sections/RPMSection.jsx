@@ -7,7 +7,7 @@ const RPMSection = () => {
       icon: FileText,
       title: 'Resume PDF',
       description: 'Complete professional resume with technical and product experience',
-      link: '/public/assets/mathis_resume.pdf',
+      link: '/assets/mathis_resume.pdf',
       type: 'download'
     },
     {

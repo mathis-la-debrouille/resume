@@ -116,7 +116,7 @@ const HeroSection = () => {
                 View 3 Projects
                 <ArrowRight size={16} />
               </button>
-              <a href="#need_data" className="btn btn-secondary">
+              <a href="/assets/mathis_resume.pdf" download="Mathis_Laurent_Resume.pdf" className="btn btn-secondary">
                 Download Resume
               </a>
               <a href="mailto:mathis.laurent.3m@gmail.com" className="btn btn-tertiary">
