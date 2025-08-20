@@ -1,0 +1,27 @@
+{
+  "name": "Mathis Laurent - Product Manager & Tech Builder",
+  "short_name": "Mathis Laurent",
+  "description": "Official portfolio website of Mathis Laurent - Product Manager and Tech Builder based in Paris, France",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["productivity", "business", "professional"],
+  "lang": "en",
+  "scope": "/",
+  "id": "mathis-laurent-portfolio"
+}
