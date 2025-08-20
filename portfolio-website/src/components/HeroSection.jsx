@@ -14,54 +14,6 @@ const HeroSection = () => {
 
   return (
     <section className="section section-center" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Small Moving Spheres */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        zIndex: 1
-      }}>
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              width: '40px',
-              height: '40px',
-              background: `radial-gradient(circle, rgba(${i % 3 === 0 ? '59, 130, 246' : i % 3 === 1 ? '156, 163, 175' : '29, 78, 216'}, 1) 0%, rgba(${i % 3 === 0 ? '29, 78, 216' : i % 3 === 1 ? '107, 114, 128' : '59, 130, 246'}, 0.6) 70%, transparent 100%)`,
-              borderRadius: '50%',
-              filter: 'blur(12px)',
-              transform: 'translate(-50%, -50%)',
-              boxShadow: `0 0 30px rgba(${i % 3 === 0 ? '59, 130, 246' : i % 3 === 1 ? '156, 163, 175' : '29, 78, 216'}, 0.7)`
-            }}
-            animate={{
-              x: [
-                Math.cos(i * 45 * Math.PI / 180) * 80,
-                Math.cos((i * 45 + 90) * Math.PI / 180) * 120,
-                Math.cos((i * 45 + 180) * Math.PI / 180) * 60,
-                Math.cos((i * 45 + 270) * Math.PI / 180) * 100,
-                Math.cos(i * 45 * Math.PI / 180) * 80
-              ],
-              y: [
-                Math.sin(i * 45 * Math.PI / 180) * 60,
-                Math.sin((i * 45 + 90) * Math.PI / 180) * 80,
-                Math.sin((i * 45 + 180) * Math.PI / 180) * 40,
-                Math.sin((i * 45 + 270) * Math.PI / 180) * 70,
-                Math.sin(i * 45 * Math.PI / 180) * 60
-              ],
-              scale: [1, 1.2, 0.8, 1.1, 1],
-              opacity: [0.7, 1, 0.5, 0.8, 0.7],
-            }}
-            transition={{
-              duration: 10 + i,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
-          />
-        ))}
-      </div>
 
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div
@@ -70,13 +22,60 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.3 }}
           className="text-center"
         >
+          {/* Scrolling Labels */}
+          <div style={{ 
+            overflow: 'hidden', 
+            height: '40px', 
+            marginBottom: '32px',
+            width: '400px',
+            margin: '0 auto 32px auto',
+            maskImage: 'linear-gradient(90deg, transparent, black 15%, black 85%, transparent)',
+            WebkitMaskImage: 'linear-gradient(90deg, transparent, black 15%, black 85%, transparent)'
+          }}>
+            <motion.div
+              className="flex"
+              style={{ 
+                gap: '24px',
+                width: 'fit-content'
+              }}
+              animate={{ x: [0, -1000] }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: 'loop',
+                  duration: 30,
+                  ease: 'linear'
+                }
+              }}
+            >
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="flex" style={{ gap: '24px', whiteSpace: 'nowrap' }}>
+                  <span className="tag">A good human</span>
+                  <span className="tag">Tech expertise</span>
+                  <span className="tag">Cloud expertise</span>
+                  <span className="tag">Discovery</span>
+                  <span className="tag">Product management</span>
+                  <span className="tag">Problem solver</span>
+                  <span className="tag">Team player</span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+          
           <motion.h1
-            className="heading-hero mb-lg"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
+            transition={{ duration: 1.2, delay: 0.7 }}
+            style={{ 
+              fontFamily: 'Playfair Display, serif', 
+              fontWeight: '400',
+              fontSize: 'clamp(3rem, 8vw, 6rem)',
+              lineHeight: '1.1',
+              marginBottom: '24px'
+            }}
           >
-            Mathis Laurent
+            <span style={{ color: '#9CA3AF' }}>I'm Mathis,</span><br/>
+            <span style={{ color: 'white', textShadow: '0 0 20px rgba(255, 255, 255, 0.5)' }}>Idea builder</span>
           </motion.h1>
           
           <motion.div
@@ -85,24 +84,17 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="mb-xl"
           >
-            <p className="text-subtitle" style={{ maxWidth: '700px', margin: '0 auto' }}>
-              PM-track product builder focused on activation & habit loops.<br/>Shipped Tupi<br/>Built Valyo.<br/> Sped CI/CD at Brigad 
+            <p className="text-subtitle" style={{ 
+              maxWidth: '600px', 
+              margin: '0 auto',
+              fontFamily: 'Geist, Inter, sans-serif',
+              fontSize: '1.1rem',
+              fontWeight: '400'
+            }}>
+              PM-track product builder focused on activation & habit loops.
             </p>
           </motion.div>
 
-          <motion.div
-            className="flex justify-center flex-wrap mb-xl"
-            style={{ gap: '8px' }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <span className="tag">A good human</span>
-            <span className="tag">Tech expertise</span>
-            <span className="tag">Cloud expertise</span>
-            <span className="tag">Discovery</span>
-            <span className="tag">Product management</span>
-          </motion.div>
 
           <motion.div
             className="flex justify-center items-center flex-col"
@@ -113,15 +105,9 @@ const HeroSection = () => {
           >
             <div className="flex justify-center items-center" style={{ gap: '16px', flexWrap: 'wrap' }}>
               <button className="btn btn-primary" onClick={scrollToProjects}>
-                View 3 Projects
+                See work
                 <ArrowRight size={16} />
               </button>
-              <a href="/assets/mathis_resume.pdf" download="Mathis_Laurent_Resume.pdf" className="btn btn-secondary">
-                Download Resume
-              </a>
-              <a href="mailto:mathis.laurent.3m@gmail.com" className="btn btn-tertiary">
-                Contact
-              </a>
             </div>
             
             <div className="flex" style={{ gap: '16px' }}>
@@ -164,35 +150,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)'
-        }}
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div style={{
-          width: '24px',
-          height: '40px',
-          border: '2px solid rgba(255, 255, 255, 0.3)',
-          borderRadius: '20px',
-          display: 'flex',
-          justifyContent: 'center',
-          paddingTop: '8px'
-        }}>
-          <div style={{
-            width: '4px',
-            height: '12px',
-            backgroundColor: 'rgba(255, 255, 255, 0.6)',
-            borderRadius: '2px',
-            animation: 'pulse 2s infinite'
-          }} />
-        </div>
-      </motion.div>
 
       {/* Flan Recipe Card - Disabled */}
       {/* <FlanRecipeCard /> */}

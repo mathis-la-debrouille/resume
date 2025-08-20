@@ -143,9 +143,6 @@ const ExperiencesSection = () => {
           className="text-center mb-xl"
         >
           <h2 className="heading-section">Professional Journey</h2>
-          <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            My professional journey across different sectors and technologies
-          </p>
         </motion.div>
 
         <div className="grid grid-1" style={{ maxWidth: '1000px', margin: '0 auto', gap: '32px' }}>

@@ -96,9 +96,6 @@ const ProjectsSection = () => {
           className="text-center mb-xl"
         >
           <h2 className="heading-section">Projects</h2>
-          <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            Product challenges, solutions, and measurable impact across different domains
-          </p>
         </motion.div>
 
         <div className="grid grid-2" style={{ maxWidth: '1200px', margin: '0 auto' }}>

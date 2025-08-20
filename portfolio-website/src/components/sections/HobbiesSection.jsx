@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import { 
   Film, 
   Music, 
@@ -11,139 +10,22 @@ import {
   BookOpen,
   Lightbulb,
   Users,
-  Brain
+  Brain,
+  ExternalLink,
+  Play
 } from 'lucide-react';
+import pianoVideo from '../../assets/piano.mp4';
+import guitarPhoto from '../../assets/guitar.jpg';
+import guitartransparentphoto from '../../assets/guitar.png';
+import tripPhoto from '../../assets/trip.mp4';
+import tripStorePhoto from '../../assets/trip_store.jpg';
+import carPhoto from '../../assets/car.png';
+import super8Photo from '../../assets/super8.png';
+
 
 const HobbiesSection = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const container = document.getElementById('hobbies-container');
-      if (container) {
-        const rect = container.getBoundingClientRect();
-        setMousePosition({
-          x: ((e.clientX - rect.left) / rect.width - 0.5) * 100,
-          y: ((e.clientY - rect.top) / rect.height - 0.5) * 100
-        });
-      }
-    };
-
-    const container = document.getElementById('hobbies-container');
-    if (container) {
-      container.addEventListener('mousemove', handleMouseMove);
-      return () => container.removeEventListener('mousemove', handleMouseMove);
-    }
-  }, []);
-
-  const hobbies = [
-    {
-      id: 1,
-      title: 'Movies I LOVE',
-      description: 'Letterboxd: @mathis__',
-      icon: Film,
-      color: 'linear-gradient(135deg, rgba(239, 68, 68, 0.3) 0%, rgba(220, 38, 38, 0.3) 100%)',
-      offset: { x: -140, y: -120 }, // Left, top
-      size: 'large'
-    },
-    {
-      id: 2,
-      title: 'Latest Love',
-      description: '"Au revoir mon amour - Zélie"',
-      icon: Music,
-      color: 'linear-gradient(135deg, rgba(168, 85, 247, 0.3) 0%, rgba(147, 51, 234, 0.3) 100%)',
-      offset: { x: 140, y: -140 }, // Right, top
-      size: 'medium'
-    },
-    {
-      id: 3,
-      title: 'Music Producer',
-      description: 'YouTube: @dystopia-producer',
-      icon: Youtube,
-      color: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3) 0%, rgba(29, 78, 216, 0.3) 100%)',
-      offset: { x: -160, y: 100 }, // Left, bottom
-      size: 'large'
-    },
-    {
-      id: 4,
-      title: 'Piano & Guitar',
-      description: 'Important for me',
-      icon: Piano,
-      color: 'linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%)',
-      offset: { x: 160, y: 80 }, // Right, bottom
-      size: 'medium'
-    },
-    {
-      id: 5,
-      title: 'Running',
-      description: 'Achieved a 24km run!',
-      icon: Activity,
-      color: 'linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(217, 119, 6, 0.3) 100%)',
-      offset: { x: -200, y: -20 }, // Far left, center
-      size: 'small'
-    },
-    {
-      id: 6,
-      title: 'Climbing Life',
-      description: 'Part of my life since looong time',
-      icon: Mountain,
-      color: 'linear-gradient(135deg, rgba(99, 102, 241, 0.3) 0%, rgba(79, 70, 229, 0.3) 100%)',
-      offset: { x: 40, y: -100 }, // Right-center, top
-      size: 'medium'
-    },
-    {
-      id: 7,
-      title: 'Cooking',
-      description: 'Proud to represent my country',
-      icon: ChefHat,
-      color: 'linear-gradient(135deg, rgba(236, 72, 153, 0.3) 0%, rgba(219, 39, 119, 0.3) 100%)',
-      offset: { x: 200, y: -40 }, // Far right, slight top
-      size: 'large'
-    },
-    {
-      id: 8,
-      title: 'Reading',
-      description: '"Do Androids Dream of Electric Sheep?"',
-      icon: BookOpen,
-      color: 'linear-gradient(135deg, rgba(6, 182, 212, 0.3) 0%, rgba(8, 145, 178, 0.3) 100%)',
-      offset: { x: -80, y: 80 }, // Left-center, bottom
-      size: 'medium'
-    },
-    {
-      id: 9,
-      title: 'Creating Things',
-      description: 'Big and small',
-      icon: Lightbulb,
-      color: 'linear-gradient(135deg, rgba(251, 191, 36, 0.3) 0%, rgba(245, 158, 11, 0.3) 100%)',
-      offset: { x: 100, y: 60 }, // Right-center, bottom
-      size: 'small'
-    },
-    {
-      id: 10,
-      title: 'Friends',
-      description: 'Going out is vital',
-      icon: Users,
-      color: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3) 0%, rgba(22, 163, 74, 0.3) 100%)',
-      offset: { x: -40, y: -80 }, // Left-center, slight top
-      size: 'medium'
-    }
-  ];
-
-  const getSizeStyles = (size) => {
-    switch (size) {
-      case 'large':
-        return { width: '200px', height: '140px', fontSize: '14px' };
-      case 'medium':
-        return { width: '160px', height: '110px', fontSize: '13px' };
-      case 'small':
-        return { width: '130px', height: '90px', fontSize: '12px' };
-      default:
-        return { width: '160px', height: '110px', fontSize: '13px' };
-    }
-  };
-
   return (
-    <section className="section" style={{ minHeight: '100vh', position: 'relative' }}>
+    <section className="section">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -152,136 +34,656 @@ const HobbiesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-xl"
         >
-          <h2 className="heading-section">Hobbies & Interests</h2>
+          <h2 className="heading-section">What I love</h2>
           <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
             The passions and activities that fuel my creativity and keep me balanced
           </p>
         </motion.div>
 
-        <div 
-          id="hobbies-container"
-          style={{ 
-            position: 'relative', 
-            height: '400px', 
-            width: '100vw',
-            marginLeft: 'calc(-50vw + 50%)',
-            overflow: 'hidden',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'flex-start',
-            paddingTop: '150px'
-          }}
-        >
-          {hobbies.map((hobby, index) => {
-            const Icon = hobby.icon;
-            const sizeStyles = getSizeStyles(hobby.size);
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '80px', maxWidth: '1200px', margin: '0 auto' }}>
+          {/* Card 1: Playing for me */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0 }}
+            viewport={{ once: true }}
+            className="glass-card"
+            style={{ 
+              padding: '20px',
+              position: 'relative',
+              width: '85%',
+              height: '400px',
+              marginLeft: '10%',
+              marginRight: '5%',
+              borderTop: '2px solid rgba(255, 255, 255, 0.1)',
+              borderLeft: '0px solid rgba(255, 255, 255, 0.1)',
+              borderRight: '2px solid rgba(255, 255, 255, 0.1)',
+              borderBottom: '0px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              borderBottomLeftRadius: '0px',
+              overflow: 'visible'
+            }}
+            whileHover={{
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h3 className="heading-card" style={{ 
+              color: 'white', 
+              fontSize: '40px', 
+              position: 'absolute',
+              top: '15px',
+              right: '0.5%',
+              transform: 'translateX(-50%)',
+              fontFamily: 'var(--font-serif)',
+              fontWeight: '600',
+              margin: 0,
+              zIndex: 10
+            }}>
+              Playing for me
+            </h3>
             
-            // Calculate movement based on mouse position and distance from center
-            const moveX = (mousePosition.x * 0.05) + (Math.sin(index * 0.5) * 3);
-            const moveY = (mousePosition.y * 0.05) + (Math.cos(index * 0.5) * 3);
-
-            return (
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              {/* Photo */}
               <motion.div
-                key={hobby.id}
-                className="glass-card"
-                initial={{ 
-                  opacity: 0, 
-                  scale: 0.8,
-                  x: hobby.offset.x + moveX,
-                  y: hobby.offset.y + moveY
-                }}
-                animate={{ 
-                  opacity: 1, 
-                  scale: 1,
-                  x: hobby.offset.x + moveX,
-                  y: hobby.offset.y + moveY
-                }}
-                transition={{ 
-                  duration: 0.8, 
-                  delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  zIndex: 10,
-                  transition: { duration: 0.2 }
-                }}
+                initial={{ opacity: 0, scale: 0.9, rotate: 20 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 20 }}
+                transition={{ duration: 0.4, delay: 0 }}
                 viewport={{ once: true }}
                 style={{
                   position: 'absolute',
-                  background: hobby.color,
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  cursor: 'pointer',
-                  ...sizeStyles
+                  top: '-5%',
+                  left: '-20%',
+                  width: 'clamp(70px, 15vw, 200px)',
+                  height: 'clamp(105px, 30vw, 250px)',
+                  zIndex: 5,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(101, 98, 98, 0.75)'
                 }}
               >
-                {/* Floating animation for the cards */}
-                <motion.div
-                  animate={{
-                    y: [0, -8, 0],
-                    rotate: [0, 1, -1, 0]
-                  }}
-                  transition={{
-                    duration: 4 + index * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                >
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '8px', 
-                    marginBottom: '8px' 
-                  }}>
-                    <div style={{
-                      padding: '6px',
-                      borderRadius: '8px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.15)'
-                    }}>
-                      <Icon size={16} style={{ color: 'var(--color-text-primary)' }} />
-                    </div>
-                    <h3 style={{
-                      margin: 0,
-                      fontSize: sizeStyles.fontSize,
-                      fontWeight: '600',
-                      color: 'var(--color-text-primary)',
-                      lineHeight: '1.2'
-                    }}>
-                      {hobby.title}
-                    </h3>
-                  </div>
-                  
-                  <p style={{
-                    margin: 0,
-                    fontSize: `calc(${sizeStyles.fontSize} - 1px)`,
-                    color: 'var(--color-text-secondary)',
-                    lineHeight: '1.4',
-                    fontStyle: hobby.description.includes('"') ? 'italic' : 'normal'
-                  }}>
-                    {hobby.description}
-                  </p>
-                </motion.div>
-
-                {/* Glow effect on hover */}
-                <motion.div
+                <img
+                  src={guitarPhoto}
+                  alt="Description of image"
                   style={{
-                    position: 'absolute',
-                    inset: '-2px',
-                    background: hobby.color,
-                    borderRadius: 'var(--radius-lg)',
-                    opacity: 0,
-                    filter: 'blur(8px)',
-                    zIndex: -1
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
                   }}
-                  whileHover={{ opacity: 0.6 }}
-                  transition={{ duration: 0.3 }}
                 />
               </motion.div>
-            );
-          })}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  top: '-20%',
+                  right: '-15%',
+                  width: 'clamp(70px, 15vw, 200px)',
+                  height: 'clamp(105px, 14vw, 180px)',
+                  zIndex: 5,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src={guitartransparentphoto}
+                  alt="Description of image"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.2, delay: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  top: '10%',
+                  left: '-12%',
+                  width: 'clamp(140px, 40vw, 500px)',
+                  height: 'clamp(84px, 20vw, 300px)',
+                  zIndex: 2,
+                  transform: 'rotate(3deg)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 0px 50px rgba(122, 151, 118, 0.49)'
+                }}
+                whileHover={{
+                  boxShadow: '0 0px 60px rgba(151, 133, 101, 0.7)',
+                  zIndex: 10
+                }}
+              >
+                <video
+                  src={pianoVideo}
+                  controls
+                  autoPlay
+                  loop
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+
+              {/* YouTube Video Link */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.1, delay: 0 }}
+                viewport={{ once: true }}
+                onClick={() => window.open('https://www.youtube.com/watch?v=Dkfy58w6Tok', '_blank')}
+                style={{
+                  position: 'absolute',
+                  bottom: '0%',
+                  left: '25%',
+                  width: 'clamp(120px, 15vw, 200px)',
+                  height: 'clamp(68px, 10vw, 120px)',
+                  zIndex: 4,
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 0px 10px rgba(101, 101, 151, 0.49)',
+                  transition: 'transform 0.3s, box-shadow 0.3s'
+                }}
+                whileHover={{
+                  boxShadow: '0 0px 60px rgba(101, 101, 151, 0.7)'
+                }}
+              >
+                <img
+                  src="https://img.youtube.com/vi/Dkfy58w6Tok/hqdefault.jpg"
+                  alt="YouTube Video Thumbnail"
+                  style={{
+                    width: '100%',
+                    height: '110%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.3 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  top: '45%',
+                  right: '5%',
+                  width: 'clamp(42px, 30vw, 400px)',
+                  height: 'clamp(28px, 4vw, 40px)',
+                  zIndex: 3,
+                  transform: 'rotate(-5deg)',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 'clamp(12px, 1.2vw, 16px)',
+                  fontWeight: '500',
+                  backgroundColor: 'transparent',
+                  color: 'var(--color-text-secondary)',
+                  textAlign: 'center',
+                  whiteSpace: 'pre-line',
+                }}
+              >
+                <div>
+                  Completly<span style={{ fontWeight: 'bold', color: 'white' }}> Instrument dependant.</span>
+                  <br/>
+                  When I <span style={{ fontWeight: 'bold', color: 'white' }}>moved to Canada</span> for a year, my first move was to search for any of them.
+                  <br/>
+                  Its <span style={{ fontWeight: 'bold', color: 'white' }}>vital</span>, it is usefull to have a way to express yourself.
+                  <br/>
+                  As its not my motivation its also <span style={{ fontWeight: 'bold', color: 'white' }}>a way to connect with others.</span>
+                </div>
+              </motion.div>
+
+              {/* Highlight */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.4 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  padding: '10px',
+                  bottom: '-10%',
+                  right: '0%',
+                  height: 'clamp(35px, 5vw, 50px)',
+                  zIndex: 3,
+                  transform: 'rotate(-3deg)',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 'clamp(12px, 1.2vw, 14px)',
+                  fontWeight: '500',
+                  fontStyle: 'italic',
+                  filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.8))',
+                  border: '1px solid rgba(255, 255, 255, 0.1)'
+                }}
+              >
+                {'<3'} Chamber of reflection - Your anxiety buddy
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Card 2: My kind of trip: Autostop */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="glass-card"
+            style={{ 
+              padding: '20px',
+              position: 'relative',
+              width: '80%',
+              marginLeft: '10%',
+              height: '440px',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              borderBottom: '0px solid rgba(255, 255, 255, 0.1)',
+              borderBottomRightRadius: '0px',
+              borderRadius: '16px',
+              overflow: 'visible'
+            }}
+            whileHover={{
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <h3 className="heading-card" style={{ 
+              color: 'white', 
+              fontSize: '40px', 
+              position: 'absolute',
+              top: '15px',
+              left: '40px',
+              fontFamily: 'var(--font-serif)',
+              fontWeight: '600',
+              margin: 0,
+              zIndex: 10
+            }}>
+              My kind of trip: Autostop
+            </h3>
+            
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              {/* Text - Far left, middle */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  top: '40%',
+                  left: '7%',
+                  width: 'clamp(60px, 25vw, 350px)',
+                  height: 'clamp(40px, 6vw, 60px)',
+                  zIndex: 2,
+                  transform: 'translateY(-50%) rotate(0deg)',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 'clamp(12px, 1.2vw, 16px)',
+                  fontWeight: '500',
+                  backgroundColor: 'transparent',
+                  color: 'var(--color-text-secondary)',
+                  textAlign: 'center',
+                  whiteSpace: 'pre-line'
+                }}
+              >
+                <div>
+                  I had a week with no plans,
+                  <br/>
+                  so I decided to <span style={{ fontWeight: 'bold', color: 'white' }}>hitchhike to the south of France.</span>
+                  <br/>
+                  I met <span style={{ fontWeight: 'bold', color: 'white' }}>amazing people</span>, and it's a fantastic way to discover beautiful places 
+                  <br/>
+                  and linger in spots where you normally wouldn't.
+                  <br/>
+                  <span style={{ fontWeight: 'bold', color: 'white' }}>It's a way to connect with others.</span>
+                </div>
+              </motion.div>
+
+              {/* Photo 1 - Bottom center-left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  bottom: '-7%',
+                  right: '-10%',
+                  width: 'clamp(140px, 20vw, 300px)',
+                  height: 'clamp(95px, 30vw, 500px)',
+                  zIndex: 3,
+                  transform: 'rotate(2deg)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(135, 206, 235, 0.3)',
+                  boxShadow: '0 0px 60px rgba(101, 151, 101, 0.48)'
+                }}
+              >
+                <video
+                  src={tripPhoto}
+                  muted
+                  autoPlay
+                  loop
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+
+              {/* Photo 2 - Top right area */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  bottom: '-10%',
+                  right: '15%',
+                  width: 'clamp(160px, 24vw, 240px)',
+                  height: 'clamp(110px, 16vw, 200px)',
+                  zIndex: 4,
+                  transform: 'rotate(-1deg)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(135, 206, 235, 0.3)'
+                }}
+              >
+                <img
+                  src={tripStorePhoto}
+                  alt="Trip photo 2"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  bottom: '-25%',
+                  left: '-15%',
+                  width: 'clamp(160px, 24vw, 240px)',
+                  height: 'clamp(110px, 16vw, 200px)',
+                  zIndex: 4,
+                  transform: 'rotate(-1deg)',
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                }}
+              >
+                <img
+                  src={carPhoto}
+                  alt="Car photo"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Letterboxd addict */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="glass-card"
+            style={{ 
+              padding: '20px',
+              position: 'relative',
+              width: '100%',
+              height: '340px',
+              marginBottom: '10%',
+              border: '2px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              overflow: 'visible'
+            }}
+          >
+            {/* Letterboxd-style title with box and circles */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4, delay: 0 }}
+              viewport={{ once: true }}
+              style={{
+                position: 'absolute',
+                top: '-10%',
+                left: '32%',
+                transform: 'translate(-50%, -50%)',
+                display: 'flex',
+                alignItems: 'center',
+                backgroundColor: '#2c3440',
+                padding: '16px 32px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                zIndex: 10,
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(44, 52, 64, 0.8)'
+              }}
+            >
+              {/* Three overlapping circles like Letterboxd logo */}
+              <div style={{ display: 'flex', marginRight: '24px', position: 'relative' }}>
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#ff8500',
+                  position: 'relative',
+                  zIndex: 3
+                }} />
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#00e054',
+                  position: 'relative',
+                  marginLeft: '-12px',
+                  zIndex: 2
+                }} />
+                <div style={{
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  backgroundColor: '#00b8ff',
+                  position: 'relative',
+                  marginLeft: '-12px',
+                  zIndex: 1
+                }} />
+              </div>
+              
+              {/* Letterboxd text */}
+              <span style={{
+                color: 'white',
+                fontSize: '32px',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                fontWeight: '700',
+                letterSpacing: '-1px'
+              }}>
+                Letterboxd addict
+              </span>
+            </motion.div>
+            
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              {/* Text */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0 }}
+                viewport={{ once: true }}
+                style={{
+                  position: 'absolute',
+                  top: '25%',
+                  left: '30%',
+                  width: 'clamp(140px, 20vw, 200px)',
+                  height: 'clamp(25px, 3.5vw, 35px)',
+                  zIndex: 2,
+                  transform: 'rotate(0deg)',
+                  borderRadius: '12px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 'clamp(12px, 1.2vw, 14px)',
+                  fontWeight: '500',
+                  backgroundColor: 'transparent',
+                  color: 'var(--color-text-secondary)',
+                  textAlign: 'center',
+                  whiteSpace: 'pre-line'
+                }}
+              >
+                Im watching movies a lot of movies : <a href="https://letterboxd.com/mathis__/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-secondary)', textDecoration: 'underline' }}>@mathis__</a>
+              </motion.div>
+
+              {/* Movie Posters Container */}
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '30%',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 'clamp(15px, 3.75vw, 30px)', // Responsive gap between photos (scaled x1.5)
+                  width: 'fit-content'
+                }}
+              >
+                {/* Photo 1 */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  viewport={{ once: true }}
+                  style={{
+                    width: 'clamp(112px, 15vw, 187px)',
+                    height: 'clamp(168px, 22.5vw, 281px)',
+                    zIndex: 3,
+                    transform: 'rotate(-3deg)',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img
+                    src={super8Photo}
+                    alt="Movie poster 1"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </motion.div>
+
+                {/* Photo 2 */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  style={{
+                    width: 'clamp(112px, 15vw, 187px)',
+                    height: 'clamp(168px, 22.5vw, 281px)',
+                    zIndex: 4,
+                    transform: 'rotate(2deg)',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img
+                    src={super8Photo}
+                    alt="Movie poster 2"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </motion.div>
+
+                {/* Photo 3 */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  style={{
+                    width: 'clamp(112px, 15vw, 187px)',
+                    height: 'clamp(168px, 22.5vw, 281px)',
+                    zIndex: 3,
+                    transform: 'rotate(-1deg)',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img
+                    src={super8Photo}
+                    alt="Movie poster 3"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </motion.div>
+
+                {/* Photo 4 */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  style={{
+                    width: 'clamp(112px, 15vw, 187px)',
+                    height: 'clamp(168px, 22.5vw, 281px)',
+                    zIndex: 4,
+                    transform: 'rotate(3deg)',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    flexShrink: 0
+                  }}
+                >
+                  <img
+                    src={super8Photo}
+                    alt="Movie poster 4"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Bottom quote */}
@@ -298,7 +700,6 @@ const HobbiesSection = () => {
             padding: '32px',
             position: 'relative'
           }}>
-            {/* Big blurred white background shadow */}
             <div style={{
               position: 'absolute',
               inset: '-25px',
@@ -308,7 +709,6 @@ const HobbiesSection = () => {
               zIndex: -1
             }} />
             
-            {/* White lighted brain icon at top-left border */}
             <div style={{
               position: 'absolute',
               top: '-20px',

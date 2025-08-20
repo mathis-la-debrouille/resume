@@ -80,9 +80,6 @@ const RPMSection = () => {
           className="text-center mb-xl"
         >
           <h2 className="heading-section">Application Pack</h2>
-          <p className="text-subtitle" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            Everything you need to evaluate my product management skills and background
-          </p>
         </motion.div>
 
         <div className="grid grid-2" style={{ maxWidth: '1200px', margin: '0 auto', gap: '24px' }}>
