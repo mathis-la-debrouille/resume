@@ -20,7 +20,7 @@ import guitartransparentphoto from '../../assets/guitar.png';
 import tripPhoto from '../../assets/trip.mp4';
 import tripStorePhoto from '../../assets/trip_store.jpg';
 import carPhoto from '../../assets/car.png';
-import super8Photo from '../../assets/super8.png';
+// import super8Photo from '../../assets/super8.png';
 
 import lms from '../../assets/lms.jpg';
 import lll from '../../assets/lll.jpg';
@@ -672,7 +672,7 @@ const HobbiesSection = () => {
                     transform: 'rotate(3deg)',
                     borderRadius: '8px',
                     overflow: 'hidden',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: '31px solid rgba(255, 255, 255, 0.1)',
                     flexShrink: 0
                   }}
                 >

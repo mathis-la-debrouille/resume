@@ -10,6 +10,10 @@ import tripPhoto from '../../assets/trip.mp4';
 import tripStorePhoto from '../../assets/trip_store.jpg';
 import carPhoto from '../../assets/car.png';
 import super8Photo from '../../assets/super8.png';
+import lms from '../../assets/lms.jpg';
+import lll from '../../assets/lll.jpg';
+import tpobaw from '../../assets/tpobaw.jpg';
+import br2049 from '../../assets/br2049.jpg';
 
 const WhoIAmSection = () => {
   const personalInfo = [
@@ -321,7 +325,7 @@ const WhoIAmSection = () => {
               right: '0.5%',
               transform: 'translateX(-50%)',
               fontFamily: 'var(--font-serif)',
-              fontWeight: '600',
+              fontWeight: '400',
               margin: 0,
               zIndex: 10
             }}>
@@ -554,7 +558,7 @@ const WhoIAmSection = () => {
               top: '15px',
               left: '40px',
               fontFamily: 'var(--font-serif)',
-              fontWeight: '600',
+              fontWeight: '400',
               margin: 0,
               zIndex: 10
             }}>
@@ -784,9 +788,9 @@ const WhoIAmSection = () => {
                 viewport={{ once: true }}
                 style={{
                   position: 'absolute',
-                  top: '25%',
-                  left: '30%',
-                  width: 'clamp(140px, 20vw, 200px)',
+                  top: '15%',
+                  left: '37%',
+                  width: 'clamp(140px, 25vw, 300px)',
                   height: 'clamp(25px, 3.5vw, 35px)',
                   zIndex: 2,
                   transform: 'rotate(0deg)',
@@ -802,7 +806,9 @@ const WhoIAmSection = () => {
                   whiteSpace: 'pre-line'
                 }}
               >
-                Im watching movies a lot of movies : <a href="https://letterboxd.com/mathis__/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-text-secondary)', textDecoration: 'underline' }}>@mathis__</a>
+                <div>
+                Im watching a lot of movies: <a href="https://letterboxd.com/mathis__/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'underline', whiteSpace: 'nowrap',textShadow: '0 0 10px rgba(255, 255, 255, 0.8)'  }}>@mathis__</a>
+                </div>
               </motion.div>
 
               {/* Movie Posters Container */}
@@ -837,7 +843,7 @@ const WhoIAmSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={lms}
                     alt="Movie poster 1"
                     style={{
                       width: '100%',
@@ -865,7 +871,7 @@ const WhoIAmSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={lll}
                     alt="Movie poster 2"
                     style={{
                       width: '100%',
@@ -893,7 +899,7 @@ const WhoIAmSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={tpobaw}
                     alt="Movie poster 3"
                     style={{
                       width: '100%',
@@ -921,7 +927,7 @@ const WhoIAmSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={br2049}
                     alt="Movie poster 4"
                     style={{
                       width: '100%',
@@ -935,32 +941,6 @@ const WhoIAmSection = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-xl"
-        >
-          <div className="glass-card" style={{ maxWidth: '800px', margin: '0 auto', padding: '48px 32px' }}>
-            <blockquote style={{
-              fontSize: '1.25rem',
-              fontStyle: 'italic',
-              color: 'var(--color-text-secondary)',
-              lineHeight: '1.6',
-              marginBottom: '16px'
-            }}>
-              "Fall in love with the problem, not the solution."<br/> Uri Levine (Waze co-founder)
-            </blockquote>
-            <div style={{
-              width: '40px',
-              height: '2px',
-              background: 'linear-gradient(90deg, #10B981, #06B6D4)',
-              margin: '0 auto'
-            }} />
-          </div>
-        </motion.div>
       </div>
     </section>
   );
