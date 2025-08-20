@@ -310,7 +310,6 @@ const WhoIAmSection = () => {
               borderRight: '2px solid rgba(255, 255, 255, 0.1)',
               borderBottom: '0px solid rgba(255, 255, 255, 0.1)',
               borderRadius: '16px',
-              borderBottomLeftRadius: '0px',
               overflow: 'visible'
             }}
             whileHover={{
