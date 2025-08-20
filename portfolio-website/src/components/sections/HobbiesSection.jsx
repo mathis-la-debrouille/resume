@@ -22,6 +22,11 @@ import tripStorePhoto from '../../assets/trip_store.jpg';
 import carPhoto from '../../assets/car.png';
 import super8Photo from '../../assets/super8.png';
 
+import lms from '../../assets/lms.jpg';
+import lll from '../../assets/lll.jpg';
+import tpobaw from '../../assets/tpobaw.jpg';
+import br2049 from '../../assets/br2049.jpg';
+
 
 const HobbiesSection = () => {
   return (
@@ -588,7 +593,7 @@ const HobbiesSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={lms}
                     alt="Movie poster 1"
                     style={{
                       width: '100%',
@@ -616,7 +621,7 @@ const HobbiesSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={lll}
                     alt="Movie poster 2"
                     style={{
                       width: '100%',
@@ -644,7 +649,7 @@ const HobbiesSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={tpobaw}
                     alt="Movie poster 3"
                     style={{
                       width: '100%',
@@ -672,7 +677,7 @@ const HobbiesSection = () => {
                   }}
                 >
                   <img
-                    src={super8Photo}
+                    src={br2049}
                     alt="Movie poster 4"
                     style={{
                       width: '100%',
