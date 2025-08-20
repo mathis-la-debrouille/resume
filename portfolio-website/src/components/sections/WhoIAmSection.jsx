@@ -493,7 +493,6 @@ const WhoIAmSection = () => {
                   <br/>
                   Its <span style={{ fontWeight: 'bold', color: 'white' }}>vital</span>, it is usefull to have a way to express yourself.
                   <br/>
-                  As its not my motivation its also <span style={{ fontWeight: 'bold', color: 'white' }}>a way to connect with others.</span>
                 </div>
               </motion.div>
 
