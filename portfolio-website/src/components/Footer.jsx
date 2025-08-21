@@ -49,7 +49,8 @@ const Footer = () => {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  color: 'white'
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -66,7 +67,8 @@ const Footer = () => {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  color: 'white'
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -83,7 +85,8 @@ const Footer = () => {
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  color: 'white'
                 }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -147,7 +150,7 @@ const Footer = () => {
           }}
         >
           <p className="text-small" style={{ color: 'var(--color-text-secondary)' }}>
-            © 2025 Mathis Laurent. Built with React & Framer Motion.
+            © 2025 Mathis Laurent. Built with React Vite.
           </p>
         </motion.div>
       </div>

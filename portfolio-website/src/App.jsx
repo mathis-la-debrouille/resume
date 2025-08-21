@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
-import SocialProofSection from './components/SocialProofSection';
 import SpatialGrid from './components/SpatialGrid';
 import ProjectsSection from './components/sections/ProjectsSection';
 import WhoIAmSection from './components/sections/WhoIAmSection';
@@ -62,7 +61,7 @@ function App() {
         }} />
         
         {/* Moving spheres */}
-        {[...Array(9)].map((_, i) => {
+        {[...Array(12)].map((_, i) => {
           const centerX = typeof window !== 'undefined' ? window.innerWidth / 2 : 800;
           const centerY = typeof window !== 'undefined' ? window.innerHeight / 2 : 400;
           const rectWidth = typeof window !== 'undefined' ? window.innerWidth * 0.5 : 400; // Reduced size
@@ -111,22 +110,24 @@ function App() {
                 position: 'absolute',
                 width: 
                   i === 0 ? '600px' : // Purple - biggest
-                  i === 1 ? '400px' : // Black
+                  i === 11 ? '550px' : // Big bright light blue
+                  i === 1 || i === 6 ? '400px' : // Black and Orange
                   i === 8 ? '300px' : // Black - smaller on top
-                  i === 6 ? '300px' : // Orange - smallest
-                  i === 5 || i === 4 ? '350px' : '500px', // Blue variations
+                  i === 5 || i === 4 || i === 9 || i === 10 ? '350px' : '500px', // Blue variations
                 height: 
                   i === 0 ? '600px' : 
-                  i === 1 ? '400px' : 
+                  i === 11 ? '550px' : // Big bright light blue
+                  i === 1 || i === 6 ? '400px' : // Black and Orange
                   i === 8 ? '300px' : // Black - smaller on top
-                  i === 6 ? '300px' : 
-                  i === 5 || i === 4 ? '350px' : '500px',
+                  i === 5 || i === 4 || i === 9 || i === 10 ? '350px' : '500px',
                 borderRadius: '50%',
                 background: 
                   i === 0 ? 'radial-gradient(circle, rgba(147, 51, 234, 0.5) 0%, rgba(79, 70, 229, 0.25) 40%, rgba(147, 51, 234, 0.1) 70%, transparent 100%)' : // Purple
+                  i === 11 ? 'radial-gradient(circle, rgba(0, 191, 255, 0.7) 0%, rgba(135, 206, 250, 0.4) 40%, rgba(173, 216, 230, 0.2) 70%, transparent 100%)' : // Big bright light blue
                   i === 1 || i === 8 ? 'radial-gradient(circle, rgba(20, 20, 20, 0.7) 0%, rgba(40, 40, 40, 0.35) 40%, rgba(20, 20, 20, 0.15) 70%, transparent 100%)' : // Black spheres
-                  i === 6 ? 'radial-gradient(circle, rgba(255, 165, 0, 0.5) 0%, rgba(255, 140, 0, 0.25) 40%, rgba(255, 165, 0, 0.1) 70%, transparent 100%)' : // Orange
-                  i === 7 ? 'radial-gradient(circle, rgba(30, 100, 200, 0.4) 0%, rgba(60, 120, 180, 0.2) 40%, rgba(30, 100, 200, 0.1) 70%, transparent 100%)' : // Additional blue sphere
+                  i === 6 ? 'radial-gradient(circle, rgba(255, 140, 0, 0.7) 0%, rgba(255, 165, 0, 0.4) 40%, rgba(255, 185, 0, 0.2) 70%, transparent 100%)' : // Brighter Orange
+                  i === 10 ? 'radial-gradient(circle, rgba(0, 191, 255, 0.6) 0%, rgba(135, 206, 250, 0.35) 40%, rgba(173, 216, 230, 0.15) 70%, transparent 100%)' : // Bright light blue
+                  i === 7 || i === 9 ? 'radial-gradient(circle, rgba(30, 100, 200, 0.4) 0%, rgba(60, 120, 180, 0.2) 40%, rgba(30, 100, 200, 0.1) 70%, transparent 100%)' : // Light blue spheres
                   'radial-gradient(circle, rgba(30, 100, 200, 0.4) 0%, rgba(60, 120, 180, 0.2) 40%, rgba(30, 100, 200, 0.1) 70%, transparent 100%)', // Blue
                 filter: 'blur(120px)',
                 zIndex: i === 8 ? 3 : 1, // Black sphere on top
@@ -154,7 +155,6 @@ function App() {
         <main>
           <section id="home">
             <HeroSection />
-            <SocialProofSection />
             {/* <SpatialGrid /> */}
           </section>
           

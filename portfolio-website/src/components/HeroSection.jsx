@@ -12,6 +12,7 @@ const HeroSection = () => {
     }
   };
 
+
   return (
     <section className="section section-center" style={{ position: 'relative', overflow: 'hidden' }}>
 
@@ -152,9 +153,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-
-      {/* Flan Recipe Card - Disabled */}
-      {/* <FlanRecipeCard /> */}
     </section>
   );
 };

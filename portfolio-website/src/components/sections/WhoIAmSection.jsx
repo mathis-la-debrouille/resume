@@ -521,7 +521,7 @@ const WhoIAmSection = () => {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {'<3'} Chamber of reflection - Your anxiety buddy
+                <a href="https://www.youtube.com/watch?v=s3slVTYZOzc&list=RDs3slVTYZOzc&start_radio=1" target="_blank" style={{ color: 'white', textDecoration: 'none', cursor: 'pointer'}}>{'<3'} Chamber of reflection - Your anxiety buddy</a>
               </motion.div>
             </div>
           </motion.div>

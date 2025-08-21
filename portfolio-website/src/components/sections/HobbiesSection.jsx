@@ -276,7 +276,7 @@ const HobbiesSection = () => {
                   border: '1px solid rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {'<3'} Chamber of reflection - Your anxiety buddy
+                <a href="https://www.youtube.com/watch?v=Dkfy58w6Tok" target="_blank" style={{ color: 'white', textDecoration: 'underline', cursor: 'pointer'}}>{'<3'} Chamber of reflection - Your anxiety buddy</a>
               </motion.div>
             </div>
           </motion.div>

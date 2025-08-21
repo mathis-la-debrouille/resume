@@ -12,9 +12,10 @@ const ProjectsSection = () => {
     {
       id: 1,
       title: 'Tupi',
-      subtitle: 'Turn eco intent into 4-week habit',
-      problem: 'Users want to be more ecological but lack motivation and habits',
-      metrics: ['D7 64%', 'NPS 52', '+38% NSM after Prompt Engine v1'],
+      subtitle: 'Duolingo-style eco actions app (closed beta)',
+      problem: 'Defined NSM/guardrails and experiment plan; led ideation → pivot to ecological gamification. Shipped v1 to 120 beta users achieving strong retention and user satisfaction.',
+      description: 'Tupi taught me the B2C craft: talk to users, keep scopes small, write clear copy, and watch funnels/cohorts to guide the next iteration. Currently building it out, reaching partners and local actors.',
+      metrics: ['D7 64%', 'D30 22%', 'NPS 52', '4.2/5 (84 reviews)', '~150 interviews', '2nd place jury'],
       role: 'Founder',
       image: tupiPhoto,
       buttons: [
@@ -26,9 +27,10 @@ const ProjectsSection = () => {
     {
       id: 2,
       title: 'Valyo',
-      subtitle: 'Fintech rules engine for wealth visualization',
-      problem: 'Wealth managers need better data visualization tools',
-      metrics: ['MVP Stage', '4mo Timeline', 'AI Integration'],
+      subtitle: 'Trust-first wealth hub (AISP + rules engine; DCA planner)',
+      problem: '23 discovery interviews; wrote portfolio-aggregation PRD & 90-day roadmap. Designed IA/UX; POC rules engine; LLM tagging & entity-matching for data enrichment.',
+      description: 'Valyo taught me the discipline of regulated fintech: precise data contracts, compliance-minded design, and clear PRDs so engineering, risk, and ops stay aligned. Currently in early-stage build/validation.',
+      metrics: ['23 interviews', 'MVP Stage', '90-day roadmap', 'AI/LLM integration', 'Compliance-first'],
       role: 'Co-founder/PM',
       image: valyoPhoto,
       buttons: [
@@ -48,17 +50,17 @@ const ProjectsSection = () => {
         { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Pawcare-252a3065f55b80f094a5ecc816c5a529?pvs=74' },
       ]
     },
-    {
-      id: 3,
-      title: 'Sifokab',
-      subtitle: 'Data-driven CRM for ESN companies',
-      problem: 'ESN companies need better tools for data collection and visualization',
-      metrics: ['ESN Market', 'KPI Tested', 'B2B CRM'],
-      role: 'Founder & Dev',
-      image: sifokabPhoto,
-      buttons: [
-      ]
-    },
+    // {
+    //   id: 3,
+    //   title: 'Sifokab',
+    //   subtitle: 'Data-driven CRM for ESN companies',
+    //   problem: 'ESN companies need better tools for data collection and visualization',
+    //   metrics: ['ESN Market', 'KPI Tested', 'B2B CRM'],
+    //   role: 'Founder & Dev',
+    //   image: sifokabPhoto,
+    //   buttons: [
+    //   ]
+    // },
     {
       id: 4,
       title: 'CreativeLab',
@@ -72,21 +74,8 @@ const ProjectsSection = () => {
     },
   ];
 
-  const getStatusStyle = (status) => {
-    switch (status) {
-      case 'Featured':
-        return { backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#10B981', border: '1px solid rgba(16, 185, 129, 0.3)' };
-      case 'In Progress':
-        return { backgroundColor: 'rgba(245, 158, 11, 0.2)', color: '#F59E0B', border: '1px solid rgba(245, 158, 11, 0.3)' };
-      case 'Completed':
-        return { backgroundColor: 'rgba(59, 130, 246, 0.2)', color: '#3B82F6', border: '1px solid rgba(59, 130, 246, 0.3)' };
-      default:
-        return { backgroundColor: 'rgba(107, 114, 128, 0.2)', color: '#6B7280', border: '1px solid rgba(107, 114, 128, 0.3)' };
-    }
-  };
-
   return (
-    <section className="section">
+    <section className="section" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -98,19 +87,22 @@ const ProjectsSection = () => {
           <h2 className="heading-section">Projects</h2>
         </motion.div>
 
-        <div className="grid grid-2" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div className="grid grid-2" style={{ gap: '32px' }}>
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
+              className="glass-card"
+              style={{ 
+                backgroundColor: 'rgba(0, 0, 0, 0.4)', // Darker cards
+                overflow: 'hidden'
+              }}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass-card"
-              style={{ overflow: 'hidden' }}
+              whileHover={{ y: -8 }}
             >
-              {/* Project Image */}
-              <div className="card-project-image" style={{ position: 'relative', overflow: 'hidden' }}>
+              <div className="card-project-image">
                 {project.image && (
                   <img 
                     src={project.image} 
@@ -119,7 +111,7 @@ const ProjectsSection = () => {
                       width: '100%',
                       height: '100%',
                       objectFit: 'cover',
-                      borderRadius: 'var(--radius-lg) var(--radius-lg) 0 0'
+                      borderRadius: 'var(--radius-md)'
                     }}
                   />
                 )}
@@ -128,111 +120,161 @@ const ProjectsSection = () => {
                   top: '16px', 
                   right: '16px',
                   fontSize: '12px',
-                  padding: '4px 8px',
+                  padding: '6px 12px',
                   borderRadius: '12px',
-                  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
                   color: 'rgba(255, 255, 255, 0.9)',
-                  backdropFilter: 'blur(8px)'
+                  backdropFilter: 'blur(8px)',
+                  fontWeight: '600'
                 }}>
                   {project.role}
                 </div>
-                
-                {/* Hover Action Button */}
-                {project.buttons.find(btn => btn.label === 'Demo') && (
-                  <div style={{
-                    position: 'absolute',
-                    inset: '0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '12px',
-                    opacity: '0',
-                    transition: 'opacity 0.3s ease',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-                  }} className="project-actions">
-                    <motion.a
-                      href={project.buttons.find(btn => btn.label === 'Demo').link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="glass-card"
-                      style={{ 
-                        padding: '12px', 
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: 'none',
-                        cursor: 'pointer',
-                        color: 'white',
-                        textDecoration: 'none'
-                      }}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={20} />
-                    </motion.a>
-                  </div>
-                )}
               </div>
-
-              <div style={{ padding: '24px' }}>
-                <div style={{ marginBottom: '16px' }}>
-                  <h3 className="heading-card" style={{ margin: 0, fontSize: '1.3rem' }}>
-                    {project.title}
-                  </h3>
-                  <p className="text-body" style={{ color: 'var(--color-text-secondary)', marginTop: '4px', fontSize: '14px' }}>
-                    {project.subtitle}
-                  </p>
-                </div>
-                
-                <p className="text-body" style={{ marginBottom: '16px', fontSize: '14px', fontWeight: '500' }}>
+              
+              <div>
+                <h3 className="heading-card">{project.title}</h3>
+                <p className="text-body" style={{ color: 'var(--color-text-secondary)', marginBottom: '16px' }}>
+                  {project.subtitle}
+                </p>
+                <p className="text-body" style={{ marginBottom: '16px' }}>
                   {project.problem}
                 </p>
+                
+                {project.description && (
+                  <p className="text-body" style={{ 
+                    marginBottom: '24px', 
+                    fontSize: '0.9rem', 
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    fontStyle: 'italic'
+                  }}>
+                    {project.description}
+                  </p>
+                )}
 
-                <div className="flex flex-wrap mb-md" style={{ gap: '8px', marginBottom: '20px' }}>
+                <div className="flex flex-wrap mb-md" style={{ gap: '8px', marginBottom: '24px' }}>
                   {project.metrics.map((metric) => (
                     <span key={metric} className="tag" style={{ 
                       fontSize: '11px',
                       backgroundColor: 'rgba(16, 185, 129, 0.1)',
                       color: '#10B981',
-                      border: '1px solid rgba(16, 185, 129, 0.2)'
+                      border: '1px solid rgba(16, 185, 129, 0.2)',
+                      fontWeight: '500'
                     }}>
                       {metric}
                     </span>
                   ))}
                 </div>
-
-                <div className="flex flex-wrap" style={{ gap: '8px' }}>
-                  {project.buttons.map((button) => (
-                    <motion.a
-                      key={button.label}
-                      href={button.link}
-                      target={button.link.startsWith('http') ? '_blank' : '_self'}
-                      rel={button.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="btn btn-tertiary"
-                      style={{ 
-                        fontSize: '12px',
-                        padding: '6px 12px',
-                        textDecoration: 'none'
-                      }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {button.label}
-                    </motion.a>
-                  ))}
+                
+                <div className="flex flex-wrap" style={{ gap: '12px' }}>
+                  {project.buttons.map((button, btnIndex) => {
+                    const isPrimary = button.label === 'Read Case Study';
+                    const isDemo = button.label === 'Demo';
+                    
+                    return (
+                      <motion.a
+                        key={button.label}
+                        href={button.link}
+                        target={button.link.startsWith('http') ? '_blank' : '_self'}
+                        rel={button.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        style={{ 
+                          fontSize: '14px',
+                          fontWeight: '600',
+                          padding: isPrimary ? '14px 28px' : '12px 22px',
+                          textDecoration: 'none',
+                          borderRadius: '10px',
+                          border: isPrimary ? '2px solid #10B981' : isDemo ? '2px solid #3B82F6' : '2px solid rgba(255, 255, 255, 0.2)',
+                          backgroundColor: isPrimary ? 'rgba(16, 185, 129, 0.15)' : isDemo ? 'rgba(59, 130, 246, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                          color: isPrimary ? '#10B981' : isDemo ? '#3B82F6' : 'rgba(255, 255, 255, 0.9)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          position: 'relative',
+                          overflow: 'hidden',
+                          transition: 'all 0.3s ease',
+                          boxShadow: isPrimary ? '0 6px 25px rgba(16, 185, 129, 0.3)' : isDemo ? '0 6px 25px rgba(59, 130, 246, 0.25)' : '0 4px 15px rgba(255, 255, 255, 0.1)'
+                        }}
+                        whileHover={{ 
+                          scale: 1.08,
+                          y: -3,
+                          boxShadow: isPrimary ? '0 10px 35px rgba(16, 185, 129, 0.4)' : isDemo ? '0 10px 35px rgba(59, 130, 246, 0.35)' : '0 6px 25px rgba(255, 255, 255, 0.2)'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        animate={{
+                          boxShadow: [
+                            isPrimary ? '0 6px 25px rgba(16, 185, 129, 0.3)' : isDemo ? '0 6px 25px rgba(59, 130, 246, 0.25)' : '0 4px 15px rgba(255, 255, 255, 0.1)',
+                            isPrimary ? '0 8px 30px rgba(16, 185, 129, 0.4)' : isDemo ? '0 8px 30px rgba(59, 130, 246, 0.3)' : '0 5px 20px rgba(255, 255, 255, 0.15)',
+                            isPrimary ? '0 6px 25px rgba(16, 185, 129, 0.3)' : isDemo ? '0 6px 25px rgba(59, 130, 246, 0.25)' : '0 4px 15px rgba(255, 255, 255, 0.1)'
+                          ]
+                        }}
+                        transition={{
+                          boxShadow: {
+                            repeat: Infinity,
+                            duration: 2.5,
+                            ease: 'easeInOut',
+                            delay: btnIndex * 0.2
+                          }
+                        }}
+                      >
+                        {/* Shimmer effect for primary button */}
+                        {isPrimary && (
+                          <motion.div
+                            style={{
+                              position: 'absolute',
+                              top: '0',
+                              left: '-100%',
+                              width: '100%',
+                              height: '100%',
+                              background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent)',
+                              zIndex: 1
+                            }}
+                            animate={{ left: ['100%', '-100%'] }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 2,
+                              ease: 'linear',
+                              repeatDelay: 4
+                            }}
+                          />
+                        )}
+                        
+                        <span style={{ position: 'relative', zIndex: 2 }}>
+                          {button.label}
+                        </span>
+                        
+                        {isPrimary && (
+                          <motion.span
+                            style={{ 
+                              fontSize: '12px',
+                              backgroundColor: '#10B981',
+                              color: 'white',
+                              padding: '3px 7px',
+                              borderRadius: '12px',
+                              position: 'relative',
+                              zIndex: 2
+                            }}
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{
+                              repeat: Infinity,
+                              duration: 1.8,
+                              ease: 'easeInOut'
+                            }}
+                          >
+                            ★
+                          </motion.span>
+                        )}
+                        
+                        {isDemo && (
+                          <ExternalLink size={16} style={{ position: 'relative', zIndex: 2 }} />
+                        )}
+                      </motion.a>
+                    );
+                  })}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .glass-card:hover .project-actions {
-          opacity: 1 !important;
-        }
-      `}</style>
     </section>
   );
 };
