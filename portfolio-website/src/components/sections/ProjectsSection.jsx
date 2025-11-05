@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Play } from 'lucide-react';
-import valyoPhoto from '../../assets/valyo-photo.jpg';
+import powmPhoto from '../../assets/powm-photo.jpg';
 import tupiPhoto from '../../assets/tupi-photo.jpg';
 import creativePhoto from '../../assets/lab-photo.jpg';
 import sifokabPhoto from '../../assets/sifokab-photo.jpg';
@@ -26,16 +26,15 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      title: 'Valyo',
-      subtitle: 'Trust-first wealth hub (AISP + rules engine; DCA planner)',
-      problem: '23 discovery interviews; wrote portfolio-aggregation PRD & 90-day roadmap. Designed IA/UX; POC rules engine; LLM tagging & entity-matching for data enrichment.',
+      title: 'Powm',
+      subtitle: 'Privacy-first identity wallet for minimal, non-correlatable proofs',
+      problem: 'Lobbyism and technical foundations; wrote PRD and roadmap. Designed IA/UX; built the all-hand verification widget and merchant API',
       description: 'Valyo taught me the discipline of regulated fintech: precise data contracts, compliance-minded design, and clear PRDs so engineering, risk, and ops stay aligned. Currently in early-stage build/validation.',
-      metrics: ['23 interviews', 'MVP Stage', '90-day roadmap', 'AI/LLM integration', 'Compliance-first'],
-      role: 'Co-founder/PM',
-      image: valyoPhoto,
+      metrics: [],
+      role: 'Founder - 3 associates',
+      image: powmPhoto,
       buttons: [
-        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Valyo-252a3065f55b80288d4fd1943e97bff1?pvs=74' },
-        { label: 'Demo', link: 'https://preview--valyo-glass-launch.lovable.app/' }
+        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Powm-study-case-2a2a3065f55b802ab2c4d2c66c59ab4b?pvs=74' },
       ]
     },
     {
