@@ -11,6 +11,19 @@ const ProjectsSection = () => {
   const projects = [
     {
       id: 1,
+      title: 'Powm',
+      subtitle: 'Privacy-first identity wallet for minimal, non-correlatable proofs',
+      problem: 'Lobbyism and technical foundations; wrote PRD and roadmap. Designed IA/UX; built the all-hand verification widget and merchant API',
+      description: 'Powm taught me to turn privacy principles into shippable systems: local-first storage, DPIAs, and a product cadence that keeps engineering, legal, and ops tightly aligned.',
+      metrics: [],
+      role: 'Founder - 3 associates',
+      image: powmPhoto,
+      buttons: [
+        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Powm-study-case-2a2a3065f55b802ab2c4d2c66c59ab4b?pvs=74' },
+      ]
+    },
+    {
+      id: 2,
       title: 'Tupi',
       subtitle: 'Duolingo-style eco actions app (closed beta)',
       problem: 'Defined NSM/guardrails and experiment plan; led ideation → pivot to ecological gamification. Shipped v1 to 120 beta users achieving strong retention and user satisfaction.',
@@ -22,19 +35,6 @@ const ProjectsSection = () => {
         { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Tupi-252a3065f55b80e29c8aecf662a024a5?pvs=74' },
         { label: 'Demo', link: 'https://tupi-app.com/' },
         { label: 'PRD', link: 'https://light-atlasaurus-699.notion.site/PRD-Tupi-252a3065f55b809fa9b4d4b52734b20d?pvs=74' }
-      ]
-    },
-    {
-      id: 2,
-      title: 'Powm',
-      subtitle: 'Privacy-first identity wallet for minimal, non-correlatable proofs',
-      problem: 'Lobbyism and technical foundations; wrote PRD and roadmap. Designed IA/UX; built the all-hand verification widget and merchant API',
-      description: 'Valyo taught me the discipline of regulated fintech: precise data contracts, compliance-minded design, and clear PRDs so engineering, risk, and ops stay aligned. Currently in early-stage build/validation.',
-      metrics: [],
-      role: 'Founder - 3 associates',
-      image: powmPhoto,
-      buttons: [
-        { label: 'Read Case Study', link: 'https://light-atlasaurus-699.notion.site/Powm-study-case-2a2a3065f55b802ab2c4d2c66c59ab4b?pvs=74' },
       ]
     },
     {
