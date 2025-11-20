@@ -4,10 +4,22 @@ const ExperiencesSection = () => {
   const experiences = [
     {
       id: 1,
+      title: 'Product Consultant',
+      company: 'KRNO',
+      location: 'Paris',
+      period: 'Oct 2024 - Present',
+      description: [
+        'As a Product Consultant, I help shape the product direction by translating market needs into clear requirements, challenging assumptions, and aligning stakeholders. I work closely with engineering, product, and leadership to structure features, validate ideas, and ensure we build solutions that are coherent, useful, and technically feasible.'
+      ],
+      skills: ['Management', 'PRD', 'Google analytics', 'Roadmap', 'Product management', 'Consulting'],
+      type: 'Product'
+    },
+    {
+      id: 1,
       title: 'DevOps Engineer',
       company: 'Brigad',
       location: 'Paris',
-      period: 'Sep 2024 – Present',
+      period: 'Sep 2024 – Sep 2025',
       description: [
         'Marketplace staffing platform.',
         'Cut CI/CD from 14 to 9 min (–36%) via caching/parallelism; +28% releases/week.',

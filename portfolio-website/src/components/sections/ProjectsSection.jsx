@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Play } from 'lucide-react';
-import powmPhoto from '../../assets/powm-photo.jpg';
+import powmPhoto from '../../assets/powm-photo.png';
 import tupiPhoto from '../../assets/tupi-photo.jpg';
 import creativePhoto from '../../assets/lab-photo.jpg';
 import sifokabPhoto from '../../assets/sifokab-photo.jpg';
