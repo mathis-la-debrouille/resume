@@ -25,7 +25,7 @@ const WhoIAmSection = () => {
     {
       icon: Calendar,
       label: 'Experience',
-      value: '3+ years (teaching, intern→DevOps, founder)'
+      value: '3+ years (teaching, intern→DevOps, founder/product-consultant)'
     },
     {
       icon: Code,
