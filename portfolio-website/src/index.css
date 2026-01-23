@@ -74,9 +74,11 @@
     scroll-snap-stop: normal;
   }
   
-  .project-snap {
-    scroll-snap-align: center;
-    scroll-snap-stop: normal;
+  @media (min-width: 1024px) {
+    .project-snap {
+      scroll-snap-align: center;
+      scroll-snap-stop: normal;
+    }
   }
 
   .editorial-heading {

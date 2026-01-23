@@ -78,9 +78,21 @@ interface ProjectSlideProps {
   onEnterView: (index: number) => void;
 }
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  return isMobile;
+};
+
 const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
   const slideRef = useRef(null);
   const isInView = useInView(slideRef, { amount: 0.5 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (isInView) {
@@ -103,39 +115,39 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
   return (
     <section
       ref={slideRef}
-      className="h-screen w-full flex items-center justify-center relative project-snap overflow-hidden"
+      className="min-h-screen lg:h-screen w-full flex items-center justify-center relative project-snap overflow-hidden py-24 lg:py-0"
     >
       {/* Background gradient glow with project color */}
       <motion.div
-        style={{ opacity: contentOpacity }}
+        style={{ opacity: isMobile ? 1 : contentOpacity }}
         className="absolute inset-0 pointer-events-none"
       >
         <div
           className={`absolute inset-0 bg-gradient-to-br ${project.bgClass} opacity-30`}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] rounded-full blur-[250px] opacity-20"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] lg:w-[1000px] lg:h-[800px] rounded-full blur-[150px] lg:blur-[250px] opacity-20"
           style={{ backgroundColor: `hsl(${project.color})` }}
         />
       </motion.div>
 
       <motion.div
-        style={{ y: contentY, opacity: contentOpacity }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12"
+        style={{ y: isMobile ? 0 : contentY, opacity: isMobile ? 1 : contentOpacity }}
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12"
       >
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Project info */}
           <div className="space-y-6 lg:space-y-8">
             {/* Project number & icon */}
             <div className="flex items-center gap-4">
               <div 
-                className="w-14 h-14 rounded-full border-2 flex items-center justify-center"
+                className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border-2 flex items-center justify-center"
                 style={{ borderColor: `hsl(${project.color})` }}
               >
-                <Icon size={24} style={{ color: `hsl(${project.color})` }} />
+                <Icon size={20} className="lg:w-6 lg:h-6" style={{ color: `hsl(${project.color})` }} />
               </div>
               <div className="flex flex-col">
-                <span className="text-6xl lg:text-7xl font-serif text-muted/20">
+                <span className="text-4xl lg:text-7xl font-serif text-muted/20">
                   {String(index + 1).padStart(2, '0')}
                 </span>
               </div>
@@ -147,28 +159,28 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
                 style={{ width: accentWidth, backgroundColor: `hsl(${project.color})` }}
                 className="h-px mb-4 origin-left"
               />
-              <h2 className="editorial-heading text-5xl lg:text-7xl mb-2">{project.title}</h2>
-              <p className="text-muted-foreground text-lg max-w-md">{project.subtitle}</p>
+              <h2 className="editorial-heading text-4xl sm:text-5xl lg:text-7xl mb-2">{project.title}</h2>
+              <p className="text-muted-foreground text-base lg:text-lg max-w-md">{project.subtitle}</p>
             </div>
 
             {/* Role & Year */}
-            <div className="flex items-center gap-6 text-sm">
+            <div className="flex flex-wrap items-center gap-4 lg:gap-6 text-sm">
               <span className={project.accentClass}>{project.role}</span>
               <span className="text-muted-foreground">{project.year}</span>
             </div>
 
             {/* Description */}
-            <p className="editorial-body text-base lg:text-lg max-w-lg">
+            <p className="editorial-body text-sm lg:text-base lg:text-lg max-w-lg">
               {project.description}
             </p>
 
             {/* Key Points or Metrics */}
             {project.keyPoints ? (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 lg:gap-3">
                 {project.keyPoints.map((point, i) => (
                   <span
                     key={i}
-                    className="px-3 py-1.5 text-xs uppercase tracking-wider border rounded-full"
+                    className="px-2 lg:px-3 py-1 lg:py-1.5 text-[10px] lg:text-xs uppercase tracking-wider border rounded-full"
                     style={{ borderColor: `hsl(${project.color} / 0.5)`, color: `hsl(${project.color})` }}
                   >
                     {point}
@@ -176,7 +188,7 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
                 ))}
               </div>
             ) : project.metrics ? (
-              <div className="grid grid-cols-3 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {project.metrics.slice(0, 5).map((metric, i) => (
                   <motion.div
                     key={metric.label}
@@ -187,12 +199,12 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
                     className="text-center"
                   >
                     <div
-                      className="text-2xl lg:text-3xl font-serif mb-1"
+                      className="text-xl lg:text-2xl lg:text-3xl font-serif mb-1"
                       style={{ color: `hsl(${project.color})` }}
                     >
                       {metric.value}
                     </div>
-                    <div className="editorial-subhead text-xs">{metric.label}</div>
+                    <div className="editorial-subhead text-[10px] lg:text-xs">{metric.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -222,7 +234,7 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
           <div className="space-y-8">
             {/* Project image */}
             <motion.div
-              style={{ scale: imageScale }}
+              style={{ scale: isMobile ? 1 : imageScale }}
               className="relative aspect-video rounded-sm overflow-hidden"
             >
               <img
@@ -253,7 +265,7 @@ const ProjectSlide = ({ project, index, onEnterView }: ProjectSlideProps) => {
       {/* Side accent line */}
       <motion.div
         style={{ scaleY: scrollYProgress, backgroundColor: `hsl(${project.color})` }}
-        className="absolute right-4 lg:right-8 top-1/4 bottom-1/4 w-0.5 origin-top"
+        className="absolute right-4 lg:right-8 top-1/4 bottom-1/4 w-0.5 origin-top hidden lg:block"
       />
     </section>
   );
