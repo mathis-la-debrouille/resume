@@ -69,7 +69,7 @@ export const About = () => {
             <div className="aspect-[4/5] bg-secondary rounded-sm overflow-hidden relative">
               <img
                 src={profilePhoto}
-                alt="Mathis - Product Manager"
+                alt="Mathis - Builder"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -77,7 +77,7 @@ export const About = () => {
             {/* Name & title */}
             <div>
               <h3 className="font-serif text-4xl text-foreground mb-2">Mathis</h3>
-              <p className="text-accent text-sm font-sans uppercase tracking-widest">Product Manager</p>
+              <p className="text-accent text-sm font-sans uppercase tracking-widest">Builder</p>
             </div>
 
             {/* Quick actions */}
@@ -112,7 +112,7 @@ export const About = () => {
             <div>
               <div className="accent-line mb-6" />
               <p className="editorial-body text-lg mb-6">
-                I'm a Product Manager passionate about building products that genuinely improve people's lives. 
+                I'm a builder passionate about creating products that genuinely improve people's lives.
                 My approach combines deep user empathy with rigorous data analysis.
               </p>
               <p className="editorial-body">

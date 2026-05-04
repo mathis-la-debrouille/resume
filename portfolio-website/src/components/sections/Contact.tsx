@@ -25,7 +25,7 @@ export const Contact = () => {
               <span className="text-accent">together.</span>
             </h2>
             <p className="editorial-body max-w-md mb-8">
-              Open to Product Manager opportunities and conversations about building great products.
+              Open to builder roles across product, engineering, and sales — and conversations about creating things that matter.
             </p>
             <a
               href="mailto:hello@mathis.com"

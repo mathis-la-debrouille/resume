@@ -1,6 +1,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown, BarChart3 } from "lucide-react";
+import { ClaudeFidget } from "@/components/ClaudeFidget";
+import { GithubFidget } from "@/components/GithubFidget";
+
+// ─── Update with your actual GitHub username ───────────────────────────────
+const GITHUB_USERNAME = "mathis-la-debrouille";
+// ──────────────────────────────────────────────────────────────────────────
 
 interface HeroProps {
   onNavigate: (section: string) => void;
@@ -25,85 +31,97 @@ export const Hero = ({ onNavigate }: HeroProps) => {
     >
       <motion.div
         style={{ opacity, y, scale }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+        className="relative z-10 w-full max-w-[1600px] mx-auto px-4"
       >
-        {/* Overline with data emphasis */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex items-center justify-center gap-2 mb-6"
-        >
-          <BarChart3 size={16} className="text-accent" />
-          <p className="editorial-subhead">
-            Data-Driven Product Manager
-          </p>
-        </motion.div>
+        <div className="grid grid-cols-1 xl:grid-cols-[400px_1fr_400px] gap-6 items-center">
 
-        {/* Main heading */}
-        <div className="overflow-hidden mb-8">
-          <motion.h1
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="editorial-heading text-[clamp(3rem,12vw,9rem)]"
-          >
-            Mathis
-          </motion.h1>
+          {/* Left fidget — Claude usage */}
+          <div className="hidden xl:flex justify-center">
+            <ClaudeFidget />
+          </div>
+
+          {/* Centre — main hero copy */}
+          <div className="text-center px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-center justify-center gap-2 mb-6"
+            >
+              <BarChart3 size={16} className="text-accent" />
+              <p className="editorial-subhead">
+                Builder
+              </p>
+            </motion.div>
+
+            <div className="overflow-hidden mb-8">
+              <motion.h1
+                initial={{ y: "100%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className="editorial-heading text-[clamp(3rem,7vw,9rem)]"
+              >
+                Mathis
+              </motion.h1>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="editorial-body text-lg md:text-xl max-w-xl mx-auto mb-4"
+            >
+              Building <span className="text-accent">things that matter</span> — fast and with purpose.
+              <br />
+              <span className="text-muted-foreground">Product. Engineering. Sales.</span>
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm font-sans"
+            >
+              <div className="flex items-center gap-2 px-4 py-2 border border-border">
+                <span className="text-accent font-medium">User-Centric</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 border border-border">
+                <span className="text-accent font-medium">Data-Driven</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 border border-border">
+                <span className="text-accent font-medium">Outcome-Focused</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+              className="flex items-center justify-center gap-8 mt-8 text-muted-foreground text-sm font-sans"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-foreground font-medium">2+</span>
+                <span>Years</span>
+              </div>
+              <div className="w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-foreground font-medium">3</span>
+                <span>Products shipped</span>
+              </div>
+              <div className="w-px h-4 bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-foreground font-medium">150+</span>
+                <span>User interviews</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right fidget — GitHub contributions */}
+          <div className="hidden xl:flex justify-center">
+            <GithubFidget username={GITHUB_USERNAME} />
+          </div>
+
         </div>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="editorial-body text-lg md:text-xl max-w-xl mx-auto mb-4"
-        >
-          Building <span className="text-accent">user-centric products</span> driven by data.
-          <br />
-          <span className="text-muted-foreground">Analytics first, always.</span>
-        </motion.p>
-
-        {/* Key differentiators */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="flex flex-wrap items-center justify-center gap-6 mt-12 text-sm font-sans"
-        >
-          <div className="flex items-center gap-2 px-4 py-2 border border-border">
-            <span className="text-accent font-medium">User-Centric</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 border border-border">
-            <span className="text-accent font-medium">Data-Driven</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 border border-border">
-            <span className="text-accent font-medium">Outcome-Focused</span>
-          </div>
-        </motion.div>
-
-        {/* Stats line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-          className="flex items-center justify-center gap-8 mt-8 text-muted-foreground text-sm font-sans"
-        >
-          <div className="flex items-center gap-2">
-            <span className="text-foreground font-medium">2+</span>
-            <span>Years</span>
-          </div>
-          <div className="w-px h-4 bg-border" />
-          <div className="flex items-center gap-2">
-            <span className="text-foreground font-medium">3</span>
-            <span>Products shipped</span>
-          </div>
-          <div className="w-px h-4 bg-border" />
-          <div className="flex items-center gap-2">
-            <span className="text-foreground font-medium">150+</span>
-            <span>User interviews</span>
-          </div>
-        </motion.div>
       </motion.div>
 
       {/* Scroll indicator */}
